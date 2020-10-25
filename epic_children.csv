@@ -1,0 +1,46 @@
+id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic
+1,Dashrath and 3 women,4,"shatrughana, ram, lakshman, bharat",1,shanta,0,5,ramayan
+2,Ram and Sita,2,Luv and Kush,0,,0,2,ramayan
+3,Kush and Kumudvati,1,Atithi,0,,0,1,ramayan
+4,Lakshman and Urmila,2,Angada and Chandraketu,0,,0,2,
+5,Bharat and Mandavi,2,Taksha and Pushkala,0,,0,2,ramayan
+6,Shatrughana and Shrutakriti,2,Shatrughati and Subahu,0,,0,2,ramayan
+7,Vishrava and 2 women,3,"Ravana, Vibhishana, Kumbakarna",1,Shrupnakha,0,4,ramayan
+8,Ravana et al.,6,"Indrajit or Meghanada, Atikaya, Akshayakumara or Akshya, Narantaka, Devantaka",1,Trishira,0,7,ramayan
+9,Kuber and Bhadra,3,"alakubara, Manigriva or Varna-kavi, and Mayuraja",1,Minakshi,0,4,ramayan
+10,Vibhishana and Sarama,0,,1,Trijata,0,1,ramayan
+11,Kumbhakarna + Vajrawala and Kartaki,3,"Kumbha, Nikumbha, Bhimasura",0,,0,3,ramayan
+12,Aruna and Shyeni,2,Jatayu and Sampati,0,,0,2,ramayan
+13,Vasishtha,101,Shakti et al.,0,,0,101,ramayan
+14,Vishwamitra and multiple wives,105,"Madhuchanda, Rajarshi, Shunahshepa, Sushruta, Ashtaka, et al.",1,Shakuntala,0,106,ramayan
+15,Shiva,2,Kartik and Ganesh,1,Ashoksundari,0,3,ramayan
+16,Jambavan,0,,1,Jambavati,0,1,ramayan
+17,Kesari and Anjana,1,Hanuman,,,0,1,ramayan
+18,Sumali and Kekumati,10,Prahasta et al.,4,Kaikashi et al.,0,14,ramayan
+19,Prahasta,1,Jambumali,,,0,1,ramayan
+20,Malyavan and Sundari,8,"Vajra Mushti Viroopaaksh, Durmukh, Suptaghn, Yagyakop, Matt, and Unmatt",1,Analaa,0,9,ramayan
+21,Vali (and Sugriva) and Tara,1,Angad,0,,0,1,ramayan
+22,Janak,0,,2,Sita and Urmila,0,2,ramayan
+23,Bhima and 3 wives,3,"Ghatotkacha, Sutasoma, Sarvaga",0,,0,3,mahabharat
+24,Arjuna via 4 wives?,4,"Shrutakarma, Abhimanyu, Iravan, Babruvahana",0,,0,4,mahabharat
+25,Drona and Kripi,1,Ashwatthama,,,0,1,mahabharat
+26,Duryodhana and Bhanumati,1,Lakshman Kumar,1,Laxmanna,0,2,mahabharat
+27,Dushasan,1,Drumasena,0,,0,1,mahabharat
+28,Dhritrashtra (with Gandhari and Sughada),101,"Duryodhan, Dushasan, Yuyutsu et al.",1,Dushala,0,102,mahabharat
+29,Bahikla,1,Somadatta,0,,0,1,mahabharat
+30,Balram,2,"Nisatha, Ulmuka",1,Shashirekha/Vatsala,0,3,mahabharat
+31,Elkalya,2,Ketuman et al.,0,,0,2,mahabharat
+32,Ghatotkacha and Ahilawati,3,"Anjanaparvan, Meghavarna, Barbarika",0,,0,3,mahabharat
+33,Karna and 2 wives?,7,"Vrishasena, Sushena, Bhanusena, Satyasena, Prasenjita, Satyasandha, and Vrishaketu",,,0,7,mahabharat
+34,Krishna et al.,3,,0,,77,80,mahabharat
+35,Vasudev and 2 wives?,2,Balram and Krishna,1,Subhadra,0,3,mahabharat
+36,Chandra et al.,2,"Varchas, Budha",0,,0,2,mahabharat
+37,Ugrasen and Padmavati,1,Kansa,1,Devaki,0,2,mahabharat
+38,Yudhishthira and 2 wives?,2,Yaudheya and Prativindhya,0,,0,2,mahabharat
+39,Nakul and 2 wives?,2,Shatrusena and Suhotra,0,,0,2,mahabharat
+40,Pandu and 2 wives?,5,"Yudhishthira, Bhima, Arjuna, Nakula and Sahadeva",0,,0,5,mahabharat
+41,Yayati and 2 wives?:,5,"Yadu, Turvashu, Anu, Druhyu and Puru",1,Madhavi,0,6,mahabharat
+42,Subala and Sudama,1,Shakuni,1,Gandhari,0,2,mahabharat
+43,Shalya and Avantini,3,"Madranjaya, Rukmanagada, Rukmanarath",0,,0,3,mahabharat
+44,Virata and Sudeshna,3,"Uttara, Shveta, Shankha",1,Uttar?,0,4,mahabharat
+45,Dushyanta and Shakuntla,1,Bharat,0,,0,1,mahabharat
