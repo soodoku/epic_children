@@ -1,4 +1,4 @@
-## Epic Children
+## Epic Children: Sex Ratio of Children of Key Characters in Epics
 
 [Data](epic_children.csv) on the number and sex of children of key characters in epics.
 
