@@ -44,3 +44,27 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic
 43,Shalya and Avantini,3,"Madranjaya, Rukmanagada, Rukmanarath",0,,0,3,mahabharat
 44,Virata and Sudeshna,3,"Uttara, Shveta, Shankha",1,Uttar?,0,4,mahabharat
 45,Dushyanta and Shakuntla,1,Bharat,0,,0,1,mahabharat
+46,Adam and Eve,2,,0,,,,bible
+47,Noah,3,,0,,,,bible
+48,Abraham,8,,0,,,,bible
+49,Joseph,5,,2,,,,bible
+50,Moses,2,,0,,,,bible
+51,Ruth,1,,0,,,,bible
+52,David,19,,1,,,,bible
+53,Daniel,0,,0,,,,bible
+54,Esther,0,,0,,,,bible
+55,Peter,0,,0,,,,bible
+56,Paul,0,,0,,,,bible
+57,Job,0,,3,,,,bible
+58,Isaiah,2,,0,,,,bible
+59,Jeremiah,0,,0,,,,bible
+60,John the Baptist,0,,0,,,,bible
+61,Gideon,70,,0,,,,bible
+62,Samson,0,,0,,,,bible
+63,Deborah,0,,0,,,,bible
+64,Sarah,-,,-,,,,bible
+65,Isaac,2,,0,,,,bible
+66,Ishmael,12,,1,,,,bible
+67,Hagar,1,,0,,,,bible
+68,Terah,1,,3,,,,bible
+69,Ezekiel,0,,0,,,,bible
