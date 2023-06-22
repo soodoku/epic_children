@@ -32,7 +32,6 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 31,Elkalya,2,Ketuman et al.,0,,0,2,mahabharat,
 32,Ghatotkacha and Ahilawati,3,"Anjanaparvan, Meghavarna, Barbarika",0,,0,3,mahabharat,
 33,Karna and 2 wives?,7,"Vrishasena, Sushena, Bhanusena, Satyasena, Prasenjita, Satyasandha, and Vrishaketu",0,,0,7,mahabharat,
-34,Krishna et al.,3,,0,,77,80,mahabharat,
 35,Vasudev and 2 wives?,2,Balram and Krishna,1,Subhadra,0,3,mahabharat,
 36,Chandra et al.,2,"Varchas, Budha",0,,0,2,mahabharat,
 37,Ugrasen and Padmavati,1,Kansa,1,Devaki,0,2,mahabharat,
@@ -129,5 +128,14 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 128,Devayani,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Devayani
 129,Devaki,8,,0,,,8,mahabharat,https://en.wikipedia.org/wiki/Devaki
 130,Dhrishtadyumna,4,"Kshatradharman, Kshatravarman, Kshatranjaya, and Dhrishtaketu",0,,,4,mahabharat,https://en.wikipedia.org/wiki/Dhrishtadyumna
-131,,,,,,,,mahabharat,
-117,,,,,,,,mahabharat,
+131,Dushala,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Duhsala
+132,Ekalavya,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Ekalavya
+133,Sughada (Gandhari's maid),1,Yuyutsu,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Yuyutsu
+134,Ghritachi,1,Drona,0,,,1,mahabharat,
+135,,,,,,,,mahabharat,
+136,,,,,,,,mahabharat,
+137,,,,,,,,mahabharat,
+138,,,,,,,,mahabharat,
+139,,,,,,,,mahabharat,
+140,,,,,,,,mahabharat,
+141,,,,,,,,mahabharat,
