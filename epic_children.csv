@@ -15,15 +15,15 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 14,Vishwamitra and multiple wives,105,"Madhuchanda, Rajarshi, Shunahshepa, Sushruta, Ashtaka, et al.",1,Shakuntala,0,106,ramayan,
 15,Shiva,2,Kartik and Ganesh,1,Ashoksundari,0,3,ramayan,
 16,Jambavan,0,,1,Jambavati,0,1,ramayan,
-17,Kesari and Anjana,1,Hanuman,,,0,1,ramayan,
+17,Kesari and Anjana,1,Hanuman,0,,0,1,ramayan,
 18,Sumali and Kekumati,10,Prahasta et al.,4,Kaikashi et al.,0,14,ramayan,
-19,Prahasta,1,Jambumali,,,0,1,ramayan,
+19,Prahasta,1,Jambumali,0,,0,1,ramayan,
 20,Malyavan and Sundari,8,"Vajra Mushti Viroopaaksh, Durmukh, Suptaghn, Yagyakop, Matt, and Unmatt",1,Analaa,0,9,ramayan,
 21,Vali (and Sugriva) and Tara,1,Angad,0,,0,1,ramayan,
 22,Janak,0,,2,Sita and Urmila,0,2,ramayan,
 23,Bhima and 3 wives,3,"Ghatotkacha, Sutasoma, Sarvaga",0,,0,3,mahabharat,
 24,Arjuna via 4 wives?,4,"Shrutakarma, Abhimanyu, Iravan, Babruvahana",0,,0,4,mahabharat,
-25,Drona and Kripi,1,Ashwatthama,,,0,1,mahabharat,
+25,Drona and Kripi,1,Ashwatthama,0,,0,1,mahabharat,
 26,Duryodhana and Bhanumati,1,Lakshman Kumar,1,Laxmanna,0,2,mahabharat,
 27,Dushasan,1,Drumasena,0,,0,1,mahabharat,
 28,Dhritrashtra (with Gandhari and Sughada),101,"Duryodhan, Dushasan, Yuyutsu et al.",1,Dushala,0,102,mahabharat,
@@ -31,7 +31,7 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 30,Balram,2,"Nisatha, Ulmuka",1,Shashirekha/Vatsala,0,3,mahabharat,
 31,Elkalya,2,Ketuman et al.,0,,0,2,mahabharat,
 32,Ghatotkacha and Ahilawati,3,"Anjanaparvan, Meghavarna, Barbarika",0,,0,3,mahabharat,
-33,Karna and 2 wives?,7,"Vrishasena, Sushena, Bhanusena, Satyasena, Prasenjita, Satyasandha, and Vrishaketu",,,0,7,mahabharat,
+33,Karna and 2 wives?,7,"Vrishasena, Sushena, Bhanusena, Satyasena, Prasenjita, Satyasandha, and Vrishaketu",0,,0,7,mahabharat,
 34,Krishna et al.,3,,0,,77,80,mahabharat,
 35,Vasudev and 2 wives?,2,Balram and Krishna,1,Subhadra,0,3,mahabharat,
 36,Chandra et al.,2,"Varchas, Budha",0,,0,2,mahabharat,
@@ -98,8 +98,36 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 97,Jason,1,,0,,,1,greek,
 98,Odysseus,1,,0,,,1,greek,
 99,Orpheus,1,,0,,,1,greek,
-,Cronus,3,,3,,,6,,
-,Rhea,3,,3,,,6,,
-,Prometheus,2,,0,,,2,,
-,Atlas,1,,7,,,8,,
-,Styx,2,,2,,,4,,
+100,Cronus,3,,3,,,6,greek,
+101,Rhea,3,,3,,,6,greek,
+102,Prometheus,2,,0,,,2,greek,
+103,Atlas,1,,7,,,8,greek,
+104,Styx,2,,2,,,4,greek,
+105,Drupad,11,,1,,,2,mahabharat,https://www.vyasaonline.com/encyclopedia/drupada/
+106,Sahadev,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Sahadeva
+107,Abhimanyu,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Abhimanyu
+108,Uparicharira,7,,1,,,8,mahabharat,
+109,Adhiratha,1,,0,,,1,mahabharat,
+110,Satyavati,3,,0,,,3,mahabharat,https://en.wikipedia.org/wiki/Satyavati
+111,Agni,4,,1,,,5,mahabharat,https://en.wikipedia.org/wiki/Agni
+112,Ambalika,1,Pandu,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Ambalika
+113,Ambika,1,Dhritrashtra,0,,,1,mahabharat,
+114,Parishrami (Ambika's maid),1,Vidura,0,,,1,mahabharat,
+115,shurasena,0,,5,,,5,mahabharat,
+116,Pururavas,6,,0,,,6,mahabharat,
+117,Bahlika,1,,1,,,2,mahabharat,https://en.wikipedia.org/wiki/Bahlika_(Mahabharata)
+118,Balarama,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Balarama
+119,Krishna and Bhadra,10,,0,,,10,mahabharat,https://en.wikipedia.org/wiki/Bhadra_(Krishna%27s_wife)
+120,Bhagadatta,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Bhagadatta
+121,Krishna and Satyabhama,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Satyabhama
+122,Bhanu,1,,0,,,1,mahabharat,
+123,Bharadvaja,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Bharadvaja
+124,Bharata,1,,0,,,1,mahabharat,1 adopted: https://en.wikipedia.org/wiki/Bharata_(Mahabharata)
+125,Budha,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Budha
+126,Brihaspati,3,,0,,,3,mahabharat,https://en.wikipedia.org/wiki/Brihaspati
+127,Chandra and Rohini,1,,0,,,1,mahabharat,
+128,Devayani,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Devayani
+129,Devaki,8,,0,,,8,mahabharat,https://en.wikipedia.org/wiki/Devaki
+130,Dhrishtadyumna,4,"Kshatradharman, Kshatravarman, Kshatranjaya, and Dhrishtaketu",0,,,4,mahabharat,https://en.wikipedia.org/wiki/Dhrishtadyumna
+131,,,,,,,,mahabharat,
+117,,,,,,,,mahabharat,
