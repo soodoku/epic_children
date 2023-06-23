@@ -132,10 +132,24 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 132,Ekalavya,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Ekalavya
 133,Sughada (Gandhari's maid),1,Yuyutsu,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Yuyutsu
 134,Ghritachi,1,Drona,0,,,1,mahabharat,
-135,,,,,,,,mahabharat,
-136,,,,,,,,mahabharat,
-137,,,,,,,,mahabharat,
-138,,,,,,,,mahabharat,
-139,,,,,,,,mahabharat,
-140,,,,,,,,mahabharat,
-141,,,,,,,,mahabharat,
+135,Krishna (total),80,,8,,,88,mahabharat,"1. The first son of Queen Rukmini was Pradyumna, and also born of her were Charudeshna, Sudeshna and the powerful Charudeha, along with Sucharu, Chharugupta, Bhadracaru, Charuchandra, Vicaru and Caru, the tenth.
+
+2. The ten sons of Satyabhama were Bhanu, Subhanu, Svarbhanu, Prabhanu, Bhanuman, Chandrabhanu, Brihadbhanu, Atibhanu (the eighth), Sribhanu and Pratibhanu
+
+3. The ten sons of Jambavati were Samba, Sumitra, Purujit, Satajit, Sahasrajit, Vijaya, Citraketu, Vasuman, Dravida and Kratu. These ten, headed by Samba, were their father's favorites.
+
+4. The ten sons of Nagnajiti were Vira, Candra, Asvasena, Citragu, Vegavan, Vrisha, Ama, Sanku, Vasu and the opulent Kunti.
+
+5. The ten sons of Kalindi were Sruta, Kavi, Vrisha, Vira, Subahu, Bhadra, Santi, Darsa and Purnamasa. Her youngest son was Somaka.
+
+6. The ten sons of Lakshamana ( or Madra ) were Praghosha, Gatravan, Simha, Bala, Prabala, Urdhaga, Mahasakti, Saha, Oja and Aparajita.
+
+7. The ten sons of Mitravinda were Vrika, Harsha, Anila, Gridhra, Vardhana, Unnada, Mahamsa, Pavana, Vahni and Kshudhi.
+
+8. The ten sons of Bhadra were Sangramajit, Brihatsena, Sura, Praharana, Arijith, Jaya, Subhadra, Vama, Ayur and Satyaka."
+136,Jarasandha,2,,2,,,4,mahabharat,"	Sahadeva and Jayatsena (sons)
+Asti and Prapti (daughters, wives of Kamsa) https://en.wikipedia.org/wiki/Jarasandha"
+137,Jaratkaru,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Jaratkaru
+138,Jayadratha,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Jayadratha
+139,,,,,,,0,mahabharat,
+140,,,,,,,0,mahabharat,
