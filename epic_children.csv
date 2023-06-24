@@ -1,138 +1,88 @@
-id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
-1,Dashrath and 3 women,4,"shatrughana, ram, lakshman, bharat",1,shanta,0,5,ramayan,
-2,Ram and Sita,2,Luv and Kush,0,,0,2,ramayan,
-3,Kush and Kumudvati,1,Atithi,0,,0,1,ramayan,
-4,Lakshman and Urmila,2,Angada and Chandraketu,0,,0,2,ramayan,
-5,Bharat and Mandavi,2,Taksha and Pushkala,0,,0,2,ramayan,
-6,Shatrughana and Shrutakriti,2,Shatrughati and Subahu,0,,0,2,ramayan,
-7,Vishrava and 2 women,3,"Ravana, Vibhishana, Kumbakarna",1,Shrupnakha,0,4,ramayan,
-8,Ravana et al.,6,"Indrajit or Meghanada, Atikaya, Akshayakumara or Akshya, Narantaka, Devantaka",1,Trishira,0,7,ramayan,
-9,Kuber and Bhadra,3,"alakubara, Manigriva or Varna-kavi, and Mayuraja",1,Minakshi,0,4,ramayan,
-10,Vibhishana and Sarama,0,,1,Trijata,0,1,ramayan,
-11,Kumbhakarna + Vajrawala and Kartaki,3,"Kumbha, Nikumbha, Bhimasura",0,,0,3,ramayan,
-12,Aruna and Shyeni,2,Jatayu and Sampati,0,,0,2,ramayan,
-13,Vasishtha,101,Shakti et al.,0,,0,101,ramayan,
-14,Vishwamitra and multiple wives,105,"Madhuchanda, Rajarshi, Shunahshepa, Sushruta, Ashtaka, et al.",1,Shakuntala,0,106,ramayan,
-15,Shiva,2,Kartik and Ganesh,1,Ashoksundari,0,3,ramayan,
-16,Jambavan,0,,1,Jambavati,0,1,ramayan,
-17,Kesari and Anjana,1,Hanuman,0,,0,1,ramayan,
-18,Sumali and Kekumati,10,Prahasta et al.,4,Kaikashi et al.,0,14,ramayan,
-19,Prahasta,1,Jambumali,0,,0,1,ramayan,
-20,Malyavan and Sundari,8,"Vajra Mushti Viroopaaksh, Durmukh, Suptaghn, Yagyakop, Matt, and Unmatt",1,Analaa,0,9,ramayan,
-21,Vali (and Sugriva) and Tara,1,Angad,0,,0,1,ramayan,
-22,Janak,0,,2,Sita and Urmila,0,2,ramayan,
-23,Bhima and 3 wives,3,"Ghatotkacha, Sutasoma, Sarvaga",0,,0,3,mahabharat,
-24,Arjuna via 4 wives?,4,"Shrutakarma, Abhimanyu, Iravan, Babruvahana",0,,0,4,mahabharat,
-25,Drona and Kripi,1,Ashwatthama,0,,0,1,mahabharat,
-26,Duryodhana and Bhanumati,1,Lakshman Kumar,1,Laxmanna,0,2,mahabharat,
-27,Dushasan,1,Drumasena,0,,0,1,mahabharat,
-28,Dhritrashtra (with Gandhari and Sughada),101,"Duryodhan, Dushasan, Yuyutsu et al.",1,Dushala,0,102,mahabharat,
-29,Bahikla,1,Somadatta,0,,0,1,mahabharat,
-30,Balram,2,"Nisatha, Ulmuka",1,Shashirekha/Vatsala,0,3,mahabharat,
-31,Elkalya,2,Ketuman et al.,0,,0,2,mahabharat,
-32,Ghatotkacha and Ahilawati,3,"Anjanaparvan, Meghavarna, Barbarika",0,,0,3,mahabharat,
-33,Karna and 2 wives?,7,"Vrishasena, Sushena, Bhanusena, Satyasena, Prasenjita, Satyasandha, and Vrishaketu",0,,0,7,mahabharat,
-35,Vasudev and 2 wives?,2,Balram and Krishna,1,Subhadra,0,3,mahabharat,
-36,Chandra et al.,2,"Varchas, Budha",0,,0,2,mahabharat,
-37,Ugrasen and Padmavati,1,Kansa,1,Devaki,0,2,mahabharat,
-38,Yudhishthira and 2 wives?,2,Yaudheya and Prativindhya,0,,0,2,mahabharat,
-39,Nakul and 2 wives?,2,Shatrusena and Suhotra,0,,0,2,mahabharat,
-40,Pandu and 2 wives?,5,"Yudhishthira, Bhima, Arjuna, Nakula and Sahadeva",0,,0,5,mahabharat,
-41,Yayati and 2 wives?:,5,"Yadu, Turvashu, Anu, Druhyu and Puru",1,Madhavi,0,6,mahabharat,
-42,Subala and Sudama,1,Shakuni,1,Gandhari,0,2,mahabharat,
-43,Shalya and Avantini,3,"Madranjaya, Rukmanagada, Rukmanarath",0,,0,3,mahabharat,
-44,Virata and Sudeshna,3,"Uttara, Shveta, Shankha",1,Uttar?,0,4,mahabharat,
-45,Dushyanta and Shakuntla,1,Bharat,0,,0,1,mahabharat,
-46,Adam and Eve,2,,0,,,2,bible,
-47,Noah,3,,0,,,3,bible,
-48,Abraham,8,,0,,,8,bible,
-49,Joseph,5,,2,,,7,bible,
-50,Moses,2,,0,,,2,bible,
-51,Ruth,1,,0,,,1,bible,
-52,David,19,,1,,,20,bible,
-53,Daniel,0,,0,,,0,bible,
-54,Esther,0,,0,,,0,bible,
-55,Peter,0,,0,,,0,bible,
-56,Paul,0,,0,,,0,bible,
-57,Job,0,,3,,,3,bible,
-58,Isaiah,2,,0,,,2,bible,
-59,Jeremiah,0,,0,,,0,bible,
-60,John the Baptist,0,,0,,,0,bible,
-61,Gideon,70,,0,,,70,bible,
-62,Samson,0,,0,,,0,bible,
-63,Deborah,0,,0,,,0,bible,
-64,Isaac,2,,0,,,2,bible,
-65,Ishmael,12,,1,,,13,bible,
-66,Hagar,1,,0,,,1,bible,
-67,Terah,1,,3,,,4,bible,
-68,Ezekiel,0,,0,,,0,bible,
-69,Abraham,2,,0,,,2,quran,diff. from bible
-70,Lot,0,,4,,,4,bible,https://jwa.org/encyclopedia/article/lots-daughters-midrash-and-aggadah
-71,Jacob,12,,0,,,12,quran,
-72,Fatimah,2,,0,,,2,islam,
-73,Ali,18,,17,,,35,islam,https://en.wikipedia.org/wiki/Alids
-74,Mohammed,3,,4,,,7,islam,
-75,Samuel,2,,0,,,2,bible,
-76,Talut,9,,2,,,11,islam,https://lifeinsaudiarabia.net/who-were-talut-jalut-saul-goliath/
-77,Zechariah,1,,0,,,1,bible,
-78,Mary,1,,0,,,1,bible,
-79,Imran,2,,2,,,4,quran,
-80,Zeus,3,,3,,,6,greek,
-81,Poseidon,1,,0,,,1,greek,
-82,Hades,0,,1,,,1,greek,
-83,Hera,2,,0,,,2,greek,
-84,Demeter,0,,1,,,1,greek,
-85,Apollo,1,,0,,,1,greek,
-86,Hermes,2,,0,,,2,greek,
-87,Dionysus,1,,0,,,1,greek,
-88,Aphrodite,1,,0,,,1,greek,
-89,Ares,2,,1,,,3,greek,
-90,Hephaestus,0,,1,,,1,greek,
-91,Athena,1,,0,,,1,greek,
-92,Artemis,1,,0,,,1,greek,
-93,Perseus,2,,0,,,2,greek,
-94,Hercules,2,,0,,,2,greek,
-95,Theseus,1,,0,,,1,greek,
-96,Paris,0,,1,,,1,greek,
-97,Jason,1,,0,,,1,greek,
-98,Odysseus,1,,0,,,1,greek,
-99,Orpheus,1,,0,,,1,greek,
-100,Cronus,3,,3,,,6,greek,
-101,Rhea,3,,3,,,6,greek,
-102,Prometheus,2,,0,,,2,greek,
-103,Atlas,1,,7,,,8,greek,
-104,Styx,2,,2,,,4,greek,
-105,Drupad,11,,1,,,2,mahabharat,https://www.vyasaonline.com/encyclopedia/drupada/
-106,Sahadev,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Sahadeva
-107,Abhimanyu,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Abhimanyu
-108,Uparicharira,7,,1,,,8,mahabharat,
-109,Adhiratha,1,,0,,,1,mahabharat,
-110,Satyavati,3,,0,,,3,mahabharat,https://en.wikipedia.org/wiki/Satyavati
-111,Agni,4,,1,,,5,mahabharat,https://en.wikipedia.org/wiki/Agni
-112,Ambalika,1,Pandu,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Ambalika
-113,Ambika,1,Dhritrashtra,0,,,1,mahabharat,
-114,Parishrami (Ambika's maid),1,Vidura,0,,,1,mahabharat,
-115,shurasena,0,,5,,,5,mahabharat,
-116,Pururavas,6,,0,,,6,mahabharat,
-117,Bahlika,1,,1,,,2,mahabharat,https://en.wikipedia.org/wiki/Bahlika_(Mahabharata)
-118,Balarama,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Balarama
-119,Krishna and Bhadra,10,,0,,,10,mahabharat,https://en.wikipedia.org/wiki/Bhadra_(Krishna%27s_wife)
-120,Bhagadatta,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Bhagadatta
-121,Krishna and Satyabhama,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Satyabhama
-122,Bhanu,1,,0,,,1,mahabharat,
-123,Bharadvaja,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Bharadvaja
-124,Bharata,1,,0,,,1,mahabharat,1 adopted: https://en.wikipedia.org/wiki/Bharata_(Mahabharata)
-125,Budha,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Budha
-126,Brihaspati,3,,0,,,3,mahabharat,https://en.wikipedia.org/wiki/Brihaspati
-127,Chandra and Rohini,1,,0,,,1,mahabharat,
-128,Devayani,2,,1,,,3,mahabharat,https://en.wikipedia.org/wiki/Devayani
-129,Devaki,8,,0,,,8,mahabharat,https://en.wikipedia.org/wiki/Devaki
-130,Dhrishtadyumna,4,"Kshatradharman, Kshatravarman, Kshatranjaya, and Dhrishtaketu",0,,,4,mahabharat,https://en.wikipedia.org/wiki/Dhrishtadyumna
-131,Dushala,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Duhsala
-132,Ekalavya,2,,0,,,2,mahabharat,https://en.wikipedia.org/wiki/Ekalavya
-133,Sughada (Gandhari's maid),1,Yuyutsu,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Yuyutsu
-134,Ghritachi,1,Drona,0,,,1,mahabharat,
-135,Krishna (total),80,,8,,,88,mahabharat,"1. The first son of Queen Rukmini was Pradyumna, and also born of her were Charudeshna, Sudeshna and the powerful Charudeha, along with Sucharu, Chharugupta, Bhadracaru, Charuchandra, Vicaru and Caru, the tenth.
+parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,epic,comments
+Abhimanyu,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Abhimanyu
+Abraham,8,,0,,,bible,
+Abraham,2,,0,,,quran,diff. from bible
+Adam and Eve,2,,0,,,bible,
+Adhiratha,1,,0,,,mahabharat,
+Agni,4,,1,,,mahabharat,https://en.wikipedia.org/wiki/Agni
+Ali,18,,17,,,islam,https://en.wikipedia.org/wiki/Alids
+Ambalika,1,Pandu,0,,,mahabharat,https://en.wikipedia.org/wiki/Ambalika
+Ambika,1,Dhritrashtra,0,,,mahabharat,
+Aniruddha,2,,0,,,mahabharat,https://en.wikipedia.org/wiki/Aniruddha
+Aphrodite,1,,0,,,greek,
+Apollo,1,,0,,,greek,
+Ares,2,,1,,,greek,
+Arjuna via 4 wives?,4,"Shrutakarma, Abhimanyu, Iravan, Babruvahana",0,,0,mahabharat,
+Artemis,1,,0,,,greek,
+Aruna and Shyeni,2,Jatayu and Sampati,0,,0,ramayan,
+Athena,1,,0,,,greek,
+Atlas,1,,7,,,greek,
+Bahlika,1,Somadatta,1,,,mahabharat,https://en.wikipedia.org/wiki/Bahlika_(Mahabharata)
+Balarama,2,"Nisatha, Ulmuka",0,,,mahabharat,https://en.wikipedia.org/wiki/Balarama
+Bhagadatta,2,,0,,,mahabharat,https://en.wikipedia.org/wiki/Bhagadatta
+Bhanu,1,,0,,,mahabharat,
+Bharadvaja,2,,1,,,mahabharat,https://en.wikipedia.org/wiki/Bharadvaja
+Bharat and Mandavi,2,Taksha and Pushkala,0,,0,ramayan,https://en.wikipedia.org/wiki/Mandavi
+Bharata,1,,0,,,mahabharat,1 adopted: https://en.wikipedia.org/wiki/Bharata_(Mahabharata)
+Bhima and 3 wives,3,"Ghatotkacha, Sutasoma, Sarvaga",0,,0,mahabharat,
+Bhrigu,4,,1,,,mahabharat,https://en.wikipedia.org/wiki/Bhrigu
+Brihaspati and Mamataa,2,,0,,,mahabharat,http://www.sushmajee.com/shani/3-reference-30-49/37-brihaspati.htm
+Brihaspati and Shubh,0,,7,,,mahabharat,http://www.sushmajee.com/shani/3-reference-30-49/37-brihaspati.htm
+Brihaspati and Tara,7,,1,,,mahabharat,
+Budha,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Budha
+Chandra and Rohini,1,,0,,,mahabharat,
+Chandra et al.,2,"Varchas, Budha",0,,0,mahabharat,
+Cronus,3,,3,,,greek,
+Daniel,0,,0,,,bible,
+Dashrath and 3 women,4,"shatrughana, ram, lakshman, bharat",1,shanta,0,ramayan,
+David,19,,1,,,bible,
+Deborah,0,,0,,,bible,
+Demeter,0,,1,,,greek,
+Devaki and Vasudev,8,,0,,,mahabharat,https://en.wikipedia.org/wiki/Devaki
+Devayani,2,,1,,,mahabharat,https://en.wikipedia.org/wiki/Devayani
+Dhrishtadyumna,4,"Kshatradharman, Kshatravarman, Kshatranjaya, and Dhrishtaketu",0,,,mahabharat,https://en.wikipedia.org/wiki/Dhrishtadyumna
+Dhritrashtra (with Gandhari and Sughada),101,"Duryodhan, Dushasan, Yuyutsu et al.",1,Dushala,0,mahabharat,
+Dionysus,1,,0,,,greek,
+Drona and Kripi,1,Ashwatthama,0,,0,mahabharat,
+Drupad,11,,1,,,mahabharat,https://www.vyasaonline.com/encyclopedia/drupada/
+Duryodhana and Bhanumati,1,Lakshman Kumar,1,Laxmanna,0,mahabharat,
+Dushala,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Duhsala
+Dushasan,1,Drumasena,0,,0,mahabharat,
+Dushyanta and Shakuntla,1,Bharat,0,,0,mahabharat,
+Ekalavya,2,,0,,,mahabharat,https://en.wikipedia.org/wiki/Ekalavya
+Elkalya,2,Ketuman et al.,0,,0,mahabharat,
+Esther,0,,0,,,bible,
+Ezekiel,0,,0,,,bible,
+Fatimah,2,,0,,,islam,
+Ghatotkacha and Ahilawati,3,"Anjanaparvan, Meghavarna, Barbarika",0,,0,mahabharat,
+Ghritachi,1,Drona,0,,,mahabharat,
+Gideon,70,,0,,,bible,
+Hades,0,,1,,,greek,
+Hagar,1,,0,,,bible,
+Hephaestus,0,,1,,,greek,
+Hera,2,,0,,,greek,
+Hercules,2,,0,,,greek,
+Hermes,2,,0,,,greek,
+Imran,2,,2,,,quran,
+Isaac,2,,0,,,bible,
+Isaiah,2,,0,,,bible,
+Ishmael,12,,1,,,bible,
+Jacob,12,,0,,,quran,
+Jambavan,0,,1,Jambavati,0,ramayan,
+Janak,0,,2,Sita and Urmila,0,ramayan,
+Jarasandha,2,,2,,,mahabharat,"	Sahadeva and Jayatsena (sons)
+Asti and Prapti (daughters, wives of Kamsa) https://en.wikipedia.org/wiki/Jarasandha"
+Jaratkaru,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Jaratkaru
+Jason,1,,0,,,greek,
+Jayadratha,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Jayadratha
+Jeremiah,0,,0,,,bible,
+Job,0,,3,,,bible,
+John the Baptist,0,,0,,,bible,
+Joseph,5,,2,,,bible,
+Kadru,1000,,2,,,mahabharat,https://en.wikipedia.org/wiki/Kadru
+Karna and 2 wives?,7,"Vrishasena, Sushena, Bhanusena, Satyasena, Prasenjita, Satyasandha, and Vrishaketu",0,,0,mahabharat,
+Kesari and Anjana,1,Hanuman,0,,0,ramayan,
+Krishna (total),80,,8,,,mahabharat,"1. The first son of Queen Rukmini was Pradyumna, and also born of her were Charudeshna, Sudeshna and the powerful Charudeha, along with Sucharu, Chharugupta, Bhadracaru, Charuchandra, Vicaru and Caru, the tenth.
 
 2. The ten sons of Satyabhama were Bhanu, Subhanu, Svarbhanu, Prabhanu, Bhanuman, Chandrabhanu, Brihadbhanu, Atibhanu (the eighth), Sribhanu and Pratibhanu
 
@@ -147,9 +97,96 @@ id,parents,n_sons,sons,n_daughters,daughters,n_unknown_sex,n_total,epic,comments
 7. The ten sons of Mitravinda were Vrika, Harsha, Anila, Gridhra, Vardhana, Unnada, Mahamsa, Pavana, Vahni and Kshudhi.
 
 8. The ten sons of Bhadra were Sangramajit, Brihatsena, Sura, Praharana, Arijith, Jaya, Subhadra, Vama, Ayur and Satyaka."
-136,Jarasandha,2,,2,,,4,mahabharat,"	Sahadeva and Jayatsena (sons)
-Asti and Prapti (daughters, wives of Kamsa) https://en.wikipedia.org/wiki/Jarasandha"
-137,Jaratkaru,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Jaratkaru
-138,Jayadratha,1,,0,,,1,mahabharat,https://en.wikipedia.org/wiki/Jayadratha
-139,,,,,,,0,mahabharat,
-140,,,,,,,0,mahabharat,
+Kuber and Bhadra,3,"alakubara, Manigriva or Varna-kavi, and Mayuraja",1,Minakshi,0,ramayan,
+Kumbhakarna + Vajrawala and Kartaki,3,"Kumbha, Nikumbha, Bhimasura",0,,0,ramayan,
+Kunti,5,,0,,,mahabharat,https://en.wikipedia.org/wiki/Kunti
+Kush and Kumudvati,1,Atithi,1,,0,ramayan,https://en.wikipedia.org/wiki/Kusha_(Ramayana)
+Lakshman and Urmila,2,Angada and Chandraketu,0,,0,ramayan,
+Lot,0,,4,,,bible,https://jwa.org/encyclopedia/article/lots-daughters-midrash-and-aggadah
+Malavi,106,,1,,,mahabharat,https://en.wikipedia.org/wiki/Sudeshna
+Malyavan and Sundari,7,"Vajramusthi, Virupaksha, Durmukha, Suptaghna, Yajnakopa, Matta, Unmatta",1,Analaa,0,ramayan,
+Manasa,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Manasa
+Mary,1,,0,,,bible,
+Menaka,0,,2,,,mahabharat,https://en.wikipedia.org/wiki/Menaka
+Mohammed,3,,4,,,islam,
+Moses,2,,0,,,bible,
+Nahusa,7,,0,,,mahabharat,https://en.wikipedia.org/wiki/Nahusha
+Nakul and 2 wives?,2,Shatrusena and Suhotra,0,,0,mahabharat,
+Nala,1,,1,,,mahabharat,https://en.wikipedia.org/wiki/Nala
+Nanda,0,,1,,,mahabharat,https://en.wikipedia.org/wiki/Nanda_(Hinduism)
+Narakasura,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Narakasura
+Noah,3,,0,,,bible,
+Odysseus,1,,0,,,greek,
+Orpheus,1,,0,,,greek,
+Pandu and 2 wives?,5,"Yudhishthira, Bhima, Arjuna, Nakula and Sahadeva",0,,0,mahabharat,
+Parasara,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Par%C4%81%C5%9Bara
+Parikshit,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Parikshit
+Paris,0,,1,,,greek,
+Parishrami (Ambika's maid),1,Vidura,0,,,mahabharat,
+Paul,0,,0,,,bible,
+Perseus,2,,0,,,greek,
+Peter,0,,0,,,bible,
+Poseidon,1,,0,,,greek,
+Pradyumna,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Pradyumna
+Prahasta,1,Jambumali,0,,0,ramayan,
+Prometheus,2,,0,,,greek,
+Pururavas,6,,0,,,mahabharat,
+Ram and Sita,2,Luv and Kush,0,,0,ramayan,
+Ravana et al.,6,"Indrajit or Meghanada, Atikaya, Akshayakumara or Akshya, Narantaka, Devantaka",1,Trishira,0,ramayan,
+Revati,2,,1,,,mahabharat,https://en.wikipedia.org/wiki/Revati
+Rhea,3,,3,,,greek,
+Ruth,1,,0,,,bible,
+Sahadev,2,,1,,,mahabharat,https://en.wikipedia.org/wiki/Sahadeva
+Samson,0,,0,,,bible,
+Samuel,2,,0,,,bible,
+Satyavati,3,,0,,,mahabharat,https://en.wikipedia.org/wiki/Satyavati
+Shakuni,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Shakuni
+Shalya and Avantini,3,"Madranjaya, Rukmanagada, Rukmanarath",0,,0,mahabharat,
+Sharmishtha,3,,0,,,mahabharat,https://en.wikipedia.org/wiki/Sharmishtha
+Shatrughana and Shrutakriti,2,Shatrughati and Subahu,0,,0,ramayan,
+Shikhandi,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Shikhandi
+Shishupala,4,,1,,,mahabharat,https://en.wikipedia.org/wiki/Shishupala
+Shiva,2,Kartik and Ganesh,1,Ashoksundari,0,ramayan,
+Shukra,4,,1,,,mahabharat,https://en.wikipedia.org/wiki/Shukra
+shurasena,0,,5,,,mahabharat,
+Styx,2,,2,,,greek,
+Subala and Sudama,1,Shakuni,1,Gandhari,0,mahabharat,
+Subhadra,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Subhadra
+Sudeshna,2,,1,,,mahabharat,https://en.wikipedia.org/wiki/Sudeshna
+Sughada (Gandhari's maid),1,Yuyutsu,0,,,mahabharat,https://en.wikipedia.org/wiki/Yuyutsu
+Sumali and Kekumati,10,Prahasta et al.,4,Kaikashi et al.,0,ramayan,
+Surya,8,,3,,,mahabharat,https://en.wikipedia.org/wiki/Surya
+Svaha,3,,2,,,mahabharat,https://en.wikipedia.org/wiki/Svaha
+Talut,9,,2,,,islam,https://lifeinsaudiarabia.net/who-were-talut-jalut-saul-goliath/
+Tapati,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Tapati
+Terah,1,,3,,,bible,
+Theseus,1,,0,,,greek,
+Ugrasen and Padmavati,1,Kansa,0,Devaki,0,mahabharat,
+Uparicharira,7,,1,,,mahabharat,
+Usha,2,,0,,,mahabharat,https://en.wikipedia.org/wiki/U%E1%B9%A3%C4%81
+Valandhara,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/List_of_characters_in_the_Mahabharata
+Vali (and Sugriva) and Tara,1,Angad,0,,0,ramayan,
+Vapusthama,2,,0,,,mahabharat,https://en.wikipedia.org/wiki/List_of_characters_in_the_Mahabharata
+Vasishtha,101,Shakti et al.,0,,0,ramayan,
+Vasudev and Rohini,4,,0,,,mahabharat,https://www.wisdomlib.org/hinduism/book/vishnu-purana-wilson/d/doc116012.html
+Vibhishana and Sarama,0,,1,Trijata,0,ramayan,
+Vidura,2,,0,,,mahabharat,https://en.wikipedia.org/wiki/Vidura
+Vinata,2,,1,,,mahabharat,https://en.wikipedia.org/wiki/Vinata
+Virata and Sudeshna,3,"Uttara, Shveta, Shankha",1,Uttar?,0,mahabharat,
+Vishrava and 2 women,4,"Ravana, Vibhishana, Kumbakarna, Kuber",1,Shrupnakha,0,ramayan,
+Vishwamitra and multiple wives,105,"Madhuchanda, Rajarshi, Shunahshepa, Sushruta, Ashtaka, et al.",1,Shakuntala,0,ramayan,
+Yama,0,,1,,,mahabharat,https://en.wikipedia.org/wiki/Yama_(Hinduism)
+Yamuna,10,,0,,,mahabharat,https://en.wikipedia.org/wiki/Yamuna_in_Hinduism
+Yayati and 2 wives?:,5,"Yadu, Turvashu, Anu, Druhyu and Puru",1,Madhavi,0,mahabharat,
+Yudhishthira and 2 wives?,2,Yaudheya and Prativindhya,0,,0,mahabharat,
+Zechariah,1,,0,,,bible,
+Zeus,3,,3,,,greek,
+Agastya,1,,0,,,ramayan,https://en.wikipedia.org/wiki/Agastya
+Ahalya,1,,0,,,ramayan,https://en.wikipedia.org/wiki/Ahalya#Children
+Angad,1,,0,,,ramayan,https://en.wikipedia.org/wiki/Angada
+Ganga,1,,0,,,mahabharat,https://en.wikipedia.org/wiki/Ganga_(goddess)
+Hema,2,,1,mandodari,,ramayan,https://en.wikipedia.org/wiki/List_of_characters_in_Ramayana
+Mandodari,3,,0,,,ramayan,https://en.wikipedia.org/wiki/Mandodari
+Prahasta,8,,0,,,ramayan,
+Sampati,2,,0,,,ramayan,https://en.wikipedia.org/wiki/Sampati
+Tataka,2,,0,,,ramayan,https://en.wikipedia.org/wiki/Tataka
