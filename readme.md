@@ -6,7 +6,7 @@ Across 473 parent-child entries spanning 32 epics and 23 civilizations, 85% of n
 
 ### Data
 
-[epic_children.csv](epic_children.csv) — one row per parental unit.
+[epic_children.csv](data/epic_children.csv) — one row per parental unit.
 
 Figures with multiple spouses are split into separate rows: Arjuna has four rows (one per wife), David eight, Krishna eight (five individually named queens from Bhagavata Purana 10.61), Ali seven, Abu Bakr four. Where the number of wives is known but per-wife attribution is not (Rehoboam's 16 unnamed wives, Hasan ibn Ali's ~7), we create per-wife rows with the average child count, tagged `avg_from_aggregate`.
 
@@ -71,18 +71,18 @@ The `family_id` column links families that appear in multiple traditions. 15 uni
 
 ### Analysis
 
-Run `python analyze.py` to reproduce all summary statistics and plots:
+From the repository root, run `python scripts/analyze.py data/epic_children.csv` to reproduce all summary statistics and plots:
 
 ```
-python analyze.py                      # reads epic_children.csv
-python analyze.py path/to/file.csv     # reads specified file
+python scripts/analyze.py data/epic_children.csv
+python scripts/analyze.py path/to/file.csv
 ```
 
 The script produces: sex ratio by tradition, by historicity, row type distribution, partner multiplicity (wives per husband), children-per-couple distribution, and two plots. Key findings:
 
-![Son Preference by Tradition](plot_by_tradition.png)
+![Son Preference by Tradition](figs/plot_by_tradition.png)
 
-![The Vanishing Daughters](plot_vanishing_daughters.png)
+![The Vanishing Daughters](figs/plot_vanishing_daughters.png)
 
 Key numbers from the distribution analysis:
 
