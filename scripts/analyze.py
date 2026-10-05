@@ -11,6 +11,7 @@ from statistics import quantiles
 ROOT = Path(__file__).resolve().parents[1]
 CHILDREN = "epic_children.csv"
 PRAYERS = "epic_prayer_for_children.csv"
+PRAYER_CODES = ("son", "daughter", "son_and_daughter", "unspecified")
 DATASETS = (CHILDREN, PRAYERS)
 ALTERNATE_FIELDS = (
     "n_sons",
@@ -85,6 +86,8 @@ def validate_rows(rows, dataset):
             raise ValueError(f"Inconsistent schema in {dataset}")
         if not all(row_key(row)) or not row["source"].strip():
             raise ValueError(f"Missing key/source: {row_key(row)}")
+        if dataset == PRAYERS and row.get("desired_gender") not in PRAYER_CODES:
+            raise ValueError(f"Unknown desired-gender code: {row_key(row)}")
         for column in columns:
             value = number(row, column)
             if not value.is_integer():
@@ -588,8 +591,7 @@ def joint_coding_extremes(rows, alternatives, rule):
 
 
 def prayer_summary(rows):
-    codes = ("son", "daughter", "son_and_daughter", "unspecified")
-    if any(r["desired_gender"] not in codes for r in rows):
+    if any(r.get("desired_gender") not in PRAYER_CODES for r in rows):
         raise ValueError("Unknown desired-gender code")
     groups = {"all": rows}
     groups.update(
@@ -602,7 +604,10 @@ def prayer_summary(rows):
         {
             "source_category": epic,
             "episodes": len(group),
-            **{code: sum(r["desired_gender"] == code for r in group) for code in codes},
+            **{
+                code: sum(r["desired_gender"] == code for r in group)
+                for code in PRAYER_CODES
+            },
         }
         for epic, group in groups.items()
     ]

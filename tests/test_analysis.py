@@ -30,6 +30,17 @@ def record(rows, parent):
     return next(row for row in rows if row_key(row)[1] == parent)
 
 
+@pytest.mark.parametrize("code", ["typo", "", None])
+def test_validation_rejects_invalid_prayer_codes(repository, code):
+    row = dict(repository[0][PRAYERS][0])
+    if code is None:
+        del row["desired_gender"]
+    else:
+        row["desired_gender"] = code
+    with pytest.raises(ValueError, match="Unknown desired-gender"):
+        validate_rows([row], PRAYERS)
+
+
 def test_source_corrections(repository):
     current, _ = repository
     rows = current[CHILDREN]
