@@ -1,131 +1,136 @@
-## Epic Children
+# Epic Children
 
-Sex ratio of children of key characters across world mythological traditions.
+A sourced dataset of parent–child relationships and prayer or birth episodes
+from selected epics, religious texts, mythological traditions, and historical
+accounts. Use it to inspect recorded genealogies and compare how counts change
+under different sources and analytical choices.
 
-Across 473 parent-child entries spanning 32 epics and 23 civilizations, 85% of named children are sons. The ratio varies by tradition — 97% male in Jain texts, 90% in Hindu, 77% in Jewish, 72% in Islamic, 67% in Christian, 64% in Greco-Roman — and by historicity: legendary figures are 88% male, but historically documented families are 68% male. 62% of couples have zero named daughters.
+[Child records](data/epic_children.csv) ·
+[Prayer and birth episodes](data/epic_prayer_for_children.csv) ·
+[Analysis](scripts/analyze.py)
 
-### Data
+The collection is selected, not representative. Records mix named children,
+unnamed enumerations, minimum counts, and overlapping biological, adoptive, or
+household relationships. Totals describe these records, not unique births or
+population sex ratios. An omitted daughter and an absent daughter cannot
+consistently be distinguished; these counts alone do not identify son preference.
 
-[epic_children.csv](epic_children.csv) — one row per parental unit.
+## Results
 
-Figures with multiple spouses are split into separate rows: Arjuna has four rows (one per wife), David eight, Krishna eight (five individually named queens from Bhagavata Purana 10.61), Ali seven, Abu Bakr four. Where the number of wives is known but per-wife attribution is not (Rehoboam's 16 unnamed wives, Hasan ibn Ali's ~7), we create per-wife rows with the average child count, tagged `avg_from_aggregate`.
+<!-- BEGIN GENERATED SUMMARY -->
 
-**Columns:**
+The dataset contains 539 child records, 23 prayer and birth episodes, and 74 alternative codings. Sons predominate in the recorded counts; the magnitude depends on how much weight large records receive.
 
-| Column | Description |
+| Summary of recorded children | Male share |
+|---|---:|
+| Pooled counts, uncapped | 99.2% |
+| Equal weight per record | 80.1% |
+| Equal weight per source category | 76.6% |
+| Total contribution capped at P90 (8 children) | 77.1% |
+| Total contribution capped at P95 (13 children) | 77.3% |
+| Total contribution capped at P99 (100 children) | 83.0% |
+
+Male share is sons / (sons + daughters). The equal-record mean averages these shares; the equal-category mean averages pooled shares within nonempty `epic` categories. Records without sex-specified children do not enter either mean. These summaries describe different quantities.
+
+### Percentiles and winsorization
+
+| Measure across records | P10 | P25 | Median | P75 | P90 | P95 | P99 |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Recorded sons | 1.00 | 1.00 | 1.00 | 3.00 | 6.00 | 10.00 | 100.00 |
+| Recorded daughters | 0.00 | 0.00 | 0.00 | 1.00 | 2.00 | 3.00 | 11.25 |
+| Recorded children, all sexes | 1.00 | 1.00 | 2.00 | 4.00 | 8.00 | 13.00 | 100.00 |
+| Share of sons (%) | 33.33 | 66.67 | 100.00 | 100.00 | 100.00 | 100.00 | 100.00 |
+
+Percentiles give each record equal weight and use linear interpolation between ordered observations ([Python's inclusive method](https://docs.python.org/3/library/statistics.html#statistics.quantiles)). Count distributions exclude zero-total records, which can represent inactive accounts. Share distributions exclude records with no sex-specified children. A median share of 100% describes the middle record, not the pooled counts.
+
+Winsorization is upper-only: estimate the size cutoff among positive-total records, then multiply each record's sons, daughters, and unspecified-sex counts by `min(1, cutoff / total)`. This preserves sex composition and retains records while limiting their contribution. Cutoffs are recomputed within each selection and coding version. Counts in the source CSV stay unchanged. Ties mean the fraction capped need not equal the nominal tail.
+
+### Other sensitivity checks
+
+Removing the most influential record (bhagavata_purana / Sagara and Sumati) gives 86.8% sons. Excluding the 7 inherited `mythical_count` records gives 77.5% sons. Also excluding `cross_tradition` records gives 77.6%; restricting further to records labelled historical gives 61.3%. These labels are not validated quality ratings: some other 100-son records are unflagged, and the historical subset differs in source composition.
+
+Allowing the recorded alternatives to vary jointly gives 74.9–79.2% for the flag-filtered selection. This is a mechanical sensitivity range, not a confidence interval or necessarily a coherent textual edition. Full outputs also cover count thresholds, fixed contribution caps, record and category omissions, and allocation of unspecified-sex children.
+
+The episode wording codes are 8 son, 0 daughter, 1 both, and 14 unspecified. The list includes announcements, unintended conception, and revival requests; these counts do not measure prospective parental preferences.
+
+<!-- END GENERATED SUMMARY -->
+
+## Use the data
+
+Each child row represents a sourced family, parent, or enumerated group.
+Read its `source` and `comments` before using the counts. Git tracks corrections;
+source disagreements are retained alongside the working coding.
+
+| Fields | Interpretation |
 |---|---|
-| `parents` | Both parents, format "X and Y". Where spouse unknown: "(wife unnamed)". |
-| `husband` | Husband name. `unknown` if unnamed, `multiple` if wife count unknown, `none` if parthenogenesis. |
-| `wife` | Wife name. `unknown` if unnamed, `multiple` if husband count unknown, `none` if parthenogenesis. |
-| `husband_id` | Stable ID, format `epic::name`. Same person across rows gets same ID. Blank for unknown/none/multiple. |
-| `wife_id` | Stable ID, format `epic::name`. |
-| `n_sons` | Number of sons (may be fractional for `avg_from_aggregate` rows) |
-| `sons` | Names of sons |
-| `n_daughters` | Number of daughters (may be fractional for `avg_from_aggregate` rows) |
-| `daughters` | Names of daughters |
-| `n_unknown_sex` | Children of unknown sex |
-| `epic` | Source tradition (e.g., `mahabharat`, `hebrew_bible`, `islam`, `greek`) |
-| `source` | Primary textual source with chapter/verse |
-| `comments` | Attribution notes, variant traditions, adoptive vs. biological |
-| `row_type` | Data quality flag (see below) |
-| `historicity` | `mythological`, `legendary`, or `historical` |
-| `family_id` | Links cross-tradition parallels for deduplication |
+| `parents`, `husband`, `wife` | Parent labels; they do not consistently establish marriage or biological parenthood. `unknown`, `multiple`, and `none` are placeholders. |
+| `husband_id`, `wife_id`, `family_id` | Inherited parent IDs and selected cross-tradition family links. Coverage and identity resolution are incomplete; these are not universal deduplication keys. |
+| `n_sons`, `n_daughters`, `n_unknown_sex` | Recorded counts, including stated minimum counts. Zero does not necessarily mean an explicit assertion of absence. Unspecified sex does not measure omitted or unquantified children. |
+| `sons`, `daughters` | Names or descriptions supporting the counts, not standardized lists. |
+| `epic`, `row_type`, `historicity` | Source category, record type, and inherited historical classification. Categories vary in scope and are not independent sampled traditions. |
+| `source`, `comments` | References, coding scope, and unresolved questions. Evidence includes primary passages, secondary summaries, and stated inferences. |
+| `alternate_*` | One alternate account per row: complete counts, child descriptions, source, explanation, and `alternate_id`. Rows sharing an ID change together. Blank fields mean no recorded alternative, not agreement among sources. |
 
-### Row Types
+Alternatives **replace** affected records; they are never appended as additional
+children. The analysis applies each alternative separately to the baseline;
+only the joint sensitivity calculation combines choices. Other interpretation
+and counting-scope choices live in [alternatives.json](data/alternatives.json).
+The alternatives do not exhaust textual variation, and may change names or
+attribution without changing counts.
 
-Every row carries a `row_type` flag. Analysts should filter or weight accordingly.
+The prayer CSV records `parent`, `epic`, `ritual_type`, `desired_gender`,
+`sons_born`, `daughters_born`, `children_from_prayer`, `source`, and `comments`.
+`desired_gender` reflects explicit wishes in the cited wording; neither a
+promise nor the eventual child's sex establishes a wish. `unspecified` does
+not mean indifference. Outcome fields associate children with episodes without
+establishing that prayer caused a birth.
 
-| Type | N | Meaning | Handling |
-|---|---|---|---|
-| `couple` | 332 | Both parents named, clean attribution | Use directly |
-| `spouse_unnamed` | 81 | Couple, but spouse absent from primary sources | Use; note limitation |
-| `avg_from_aggregate` | 27 | Per-wife row created from a known aggregate: n_wives known, children divided equally. Counts may be fractional (e.g., 1.5 sons). | Use for couple-level analysis; fractional counts are averages |
-| `cross_tradition` | 15 | Derivative tradition retelling the same family (Roman ≈ Greek, Quran ≈ Hebrew Bible). Primary-tradition rows keep their natural type but carry a `family_id`. | Exclude to avoid double-counting, or use `family_id` to pick one tradition per family |
-| `single_divine` | 8 | Parthenogenesis, mind-born, or divine invocation without consort | Flag as non-biological if needed |
-| `mythical_count` | 7 | Total children ≥ 100 (Kauravas 101, Kadru 1,002, Sagara 60,001) | Cap or exclude; we cap at 200 in ratio calculations |
-| `multi_wife_agg` | 3 | Children from multiple wives lumped together; wife count unknown, so per-wife splitting impossible | Use with caution; inflates apparent son count |
+## Reproduce
 
-### Historicity
+Use Python 3.10 or later. Computation and validation use the standard library;
+figures use matplotlib.
 
-Not all rows have the same evidentiary status. Muhammad's children are as well-documented as any 7th-century family. Arjuna's are literary inventions. David probably existed (Tel Dan stele, ~840 BCE), but the stele doesn't validate 1 Chronicles 3 — his specific wife-and-children list comes from texts compiled centuries later, same genre as Abraham's.
-
-| Level | N | Definition | Examples |
-|---|---|---|---|
-| `mythological` | 98 | Gods, cosmic beings, no human historicity claimed | Zeus, Brahma, Odin, Ra, Kashyapa, Izanagi |
-| `legendary` | 304 | Human figures in epic/religious texts; no independent corroboration of family details | Arjuna, Rama, Abraham, David, Moses, Achilles, Rostam, Buddha |
-| `historical` | 71 | Family documented by near-contemporaneous sources | Muhammad, Abu Bakr, Ali, Mu'awiya, Herod the Great (Josephus), Constantine, Theodosius |
-
-**Sex ratio by historicity:**
-
-| Level | Rows | Sons | Daughters | % Male |
-|---|---|---|---|---|
-| Legendary | 304 | 1,507 | 206 | **88%** |
-| Mythological | 98 | 608 | 136 | **82%** |
-| Historical | 71 | 136 | 63 | **68%** |
-
-The gap between 88% and 68% is the storyteller's thumb on the scale.
-
-### Cross-Tradition Parallels
-
-The `family_id` column links families that appear in multiple traditions. 15 unique IDs cover Greek ≈ Roman pairs (`titan_parents`, `sky_king_queen`, `sea_god`, `underworld`, `love_war`, etc.) and Hebrew Bible ≈ Quran pairs (`abraham`, `noah`, `lot`, `david`, `solomon`, `jacob`, `amram_moses`). Primary-tradition rows keep their natural `row_type`; derivative rows are tagged `cross_tradition`. To deduplicate: filter on `row_type != 'cross_tradition'`.
-
-### Analysis
-
-Run `python analyze.py` to reproduce all summary statistics and plots:
-
-```
-python analyze.py                      # reads epic_children.csv
-python analyze.py path/to/file.csv     # reads specified file
+```sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+make check PYTHON=python
+make reproduce PYTHON=python
 ```
 
-The script produces: sex ratio by tradition, by historicity, row type distribution, partner multiplicity (wives per husband), children-per-couple distribution, and two plots. Key findings:
+`make check` runs formatting, lint, tests, and data validation. `make reproduce`
+regenerates all tables, alternative datasets, figures, and the results above.
+To generate tables elsewhere without changing the README or figures:
 
-![Son Preference by Tradition](plot_by_tradition.png)
+```sh
+python scripts/analyze.py --no-plots --output-dir /tmp/epic-children-results
+```
 
-![The Vanishing Daughters](plot_vanishing_daughters.png)
+| Output | Contents |
+|---|---|
+| [Distributions](results/distributions.csv) | Count and share percentiles for the baseline and each alternative, across three selections. |
+| [Winsorization](results/winsorized.csv) | P90, P95, and P99 cutoffs, numbers of capped records, and weighted summaries. |
+| [Robustness](results/robustness.csv) | Seventeen selection and weighting rules for every version. |
+| [Influence](results/influence.csv) | Omit one record, source category, or supplied linked-family group at a time. |
+| [Joint coding ranges](results/coding_envelope.csv) | Extreme pooled shares and the alternative IDs producing them. |
+| [Count summaries](results/summary.csv), [group summaries](results/group_summary.csv) | Counting policies overall and by source, row type, or historicity. The legacy `sons_cap_200` policy caps sons alone. |
+| [Alternative datasets](results/alternatives/) | Complete datasets with each alternative applied separately. |
+| [Episode summaries](results/prayer_summary.csv) | Wording codes overall and by source category. |
 
-Key numbers from the distribution analysis:
+The [robustness figure](figs/plot_robustness.png) compares inclusion and weighting
+rules. Sensitivity checks describe coding and analytical choices. They do not
+resolve selection or source dependence; no population significance tests or
+sampling confidence intervals are reported.
 
-- **Median children per couple: 2.** Mean: 3.7 (skewed by a few large families).
-- **43% of couples have exactly 1 child.** 63% have 1–2.
-- **Mean sons per couple: 2.9. Mean daughters: 0.9.**
-- **62% of couples have zero named daughters.** Only 7% have zero sons.
-- **84% of husbands appear with a single partner.** The most-partnered figures: Rehoboam (18 wife-rows), Ali (10), David (8), Krishna (8), Hasan ibn Ali (7), Zeus (7).
+## Correct or extend a record
 
-### Sex Ratio by Tradition
+Check the exact passage and translation, then update `source` and `comments`
+with the coding rationale. Correct errors directly. Preserve reasonable
+alternative accounts in `alternate_*`, using a shared `alternate_id` when
+parentage changes affect several rows. Do not allocate children to unnamed
+spouses, treat an unquantified plural as an exact count, or combine incompatible
+accounts. Run `make check` and `make reproduce` after edits.
 
-Sons capped at 200 per parent to exclude mythical inflation. Only traditions with >10 rows shown; 14 smaller traditions (Egyptian, Celtic, Jain, Japanese, Buddhist, Mesopotamian, Armenian, Chinese, Arthurian, Maya, W. African, Finnish, Tibetan, Hindu Tamil) contribute 50 rows total.
-
-| Tradition | Rows | Sons | Daughters | % Male |
-|---|---|---|---|---|
-| Hindu | 147 | 1,220 | 142 | 90% |
-| Jewish | 95 | 372 | 114 | 77% |
-| Islamic | 65 | 135 | 52 | 72% |
-| Christian | 30 | 54 | 27 | 67% |
-| Greco-Roman | 47 | 69 | 39 | 64% |
-| Norse | 14 | 20 | 3 | 87% |
-| Persian | 13 | 94 | 5 | 95% |
-| Turkic | 12 | 18 | 0 | 100% |
-| **Total** | **473** | **2,251** | **405** | **85%** |
-
-### Methodology
-
-**Unit of observation.** One row = one couple (or one divine parent). Multi-partner figures are split by spouse wherever sources permit. Where per-wife child counts are known, each wife gets her own row (Krishna's 8 queens, Ali's 7 named wives). Where the total is known but not the per-wife breakdown, we create per-wife rows with the average, tagged `avg_from_aggregate` — Rehoboam's 16 unnamed wives each get a row with 1.5 sons and 3.75 daughters (= 24 and 60 divided by 16). Where the wife count itself is unknown (Gideon's "many wives"), the row stays aggregated as `multi_wife_agg`.
-
-**Deduplication.** Every named child in the Hindu epics was verified to appear in exactly one row. Overlapping single-parent entries were merged into couples (Agni + Svaha, Balarama + Revati). Summary rows were removed when couple-level rows exist (Satyavati → Parasara + Satyavati and Shantanu + Satyavati).
-
-**Biological vs. adoptive.** Niyoga births attributed to the biological father (Vyasa, not Vichitravirya). Karna appears twice: biological (Surya + Kunti) and adoptive (Adhiratha + Radha).
-
-**Historicity.** Three levels. The boundary is the evidentiary status of the *family details*: David is `legendary` because the Tel Dan stele says nothing about Bathsheba or Absalom. Muhammad is `historical` because his family is documented by multiple historians within 130–210 years, with independent chains of transmission.
-
-**What the male skew means.** The 85% reflects what storytellers chose to record, not demography. The historicity gradient confirms this: legendary 88%, historical 68%. When real families are documented, daughters appear at near-biological rates. When families are invented, daughters vanish. The traditions with the highest male ratios (Jain, Persian, Hindu) are those where sons drive inheritance and succession. The traditions with lower ratios (Islamic hadith, Greco-Roman mythology) either document families systematically or give women independent narrative roles.
-
-**The Rehoboam test.** The Jewish sex ratio dropped from 90% to 77% when we added Rehoboam's 60 daughters (2 Chronicles 11:21) and Ibzan's 30 daughters (Judges 12:8-9) — two of the only passages in the Hebrew Bible that explicitly count daughters. The daughters were always in the text. They just were not in anyone's dataset.
-
-### Coverage
-
-32 epics, 23 civilizations, 473 rows. Hindu (7 epics, 147 rows); Jewish (95 rows — patriarchs, Table of Nations, tribal sons, Levitical lineage, Judges, Kings); Islamic (65 rows — Prophet's lineage, Rashidun caliphs, Twelve Imams, Umayyads, companions, Quran); Greco-Roman (47 rows); Christian (30 rows — NT figures, Church Fathers, Christian emperors, early martyrs); Norse (14); Persian (13); and 11 other traditions (82 rows).
-
-### Sources
-
-Mahabharata; Ramayana (Valmiki); Bhagavata Purana; Vishnu Purana; Shiva Purana; Hebrew Bible; New Testament; Protoevangelium of James; Acts of Peter; Josephus (Antiquities); Eusebius (Church History); Augustine (Confessions); Gregory of Nyssa (Life of Macrina); Gregory of Tours (History of the Franks); Passion of Perpetua and Felicity; Quran; al-Tabari; Ibn Sa'd (Tabaqat); Ibn Hisham (Sirah); Sahih al-Bukhari; Sahih Muslim; al-Kulayni (Usul al-Kafi); al-Mufid (Kitab al-Irshad); Hesiod (Theogony); Apollodorus (Bibliotheca); Homer; Ovid; Virgil; Prose Edda; Poetic Edda; Ferdowsi (Shahnameh); Kojiki; Dede Korkut; Kalevala; Popol Vuh; Sundiata (Niane); Jinasena (Adi Purana); Ashvaghosha (Buddhacarita).
+Unresolved identities and source limits belong in the record's notes. Validation
+checks structure and internal consistency; it does not certify every source or
+make the collection exhaustive.

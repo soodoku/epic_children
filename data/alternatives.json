@@ -1,0 +1,67 @@
+[
+  {
+    "id": "lot_two_daughters",
+    "changes": [
+      {
+        "epic": "hebrew_bible",
+        "parent": "Lot and wife (unnamed)",
+        "values": {
+          "n_daughters": "2",
+          "daughters": "two unnamed daughters",
+          "comments": "Betrothal reading of Genesis 19:14: the sons-in-law are engaged to the two daughters who leave with Lot. Two is the explicit daughter count in 19:8 and 19:15.",
+          "source": "Genesis 19:14-38; https://biblehub.com/kjv/genesis/19.htm; https://biblehub.com/genesis/19-14.htm"
+        }
+      }
+    ]
+  },
+  {
+    "id": "job_both_families",
+    "changes": [
+      {
+        "epic": "hebrew_bible",
+        "parent": "Job and wife (unnamed)",
+        "values": {
+          "parents": "Job (both families; mothers not jointly identified)",
+          "wife": "multiple",
+          "n_sons": "14",
+          "sons": "seven unnamed sons in each of two families",
+          "n_daughters": "6",
+          "daughters": "three unnamed daughters in the earlier family; Jemimah, Keziah, Keren-Happuch in the later family",
+          "source": "Job 1:2,18-19; 42:13-15; https://biblehub.com/kjv/job/1.htm; https://biblehub.com/kjv/job/42.htm",
+          "comments": "Counts both birth cohorts; the narrative does not establish the same mother for both. This changes the observation scope, not just the estimate.",
+          "row_type": "multi_wife_agg"
+        }
+      }
+    ]
+  },
+  {
+    "id": "shantanu_surviving_son",
+    "changes": [
+      {
+        "epic": "mahabharat",
+        "parent": "Shantanu and Ganga",
+        "values": {
+          "n_sons": "1",
+          "sons": "Bhishma (Devavrata or Gangadatta)",
+          "source": "Mahabharata, Adi Parva, Sambhava Parva, sections XCVIII-XCIX (Kisari Mohan Ganguli translation); https://sacred-texts.com/hin/m01/m01099.htm; https://sacred-texts.com/hin/m01/m01100.htm",
+          "comments": "Counts only the son who survives Ganga's drowning of the earlier seven. This changes the scope from births to survivors of that episode."
+        }
+      }
+    ]
+  },
+  {
+    "id": "bathsheba_named_genealogy",
+    "changes": [
+      {
+        "epic": "hebrew_bible",
+        "parent": "David and Bathsheba",
+        "values": {
+          "n_sons": "4",
+          "sons": "Shimea (Shammua), Shobab, Nathan, Solomon",
+          "source": "1 Chronicles 3:5 (KJV); https://biblehub.com/kjv/1_chronicles/3.htm",
+          "comments": "Counts only the four named sons in the Chronicles genealogy. Excludes the earlier unnamed infant in 2 Samuel 12; this is a scope change, not a denial of that birth."
+        }
+      }
+    ]
+  }
+]
