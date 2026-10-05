@@ -625,12 +625,28 @@ def markdown_results(
     )
     variants = len({r["version"] for r in grid}) - 1
     lines = [
-        f"The dataset contains {base['rows']} child records, "
-        f"{prayers[0]['episodes']} prayer and birth episodes, and "
-        f"{variants} alternative codings. Sons predominate in the recorded counts; "
-        "the magnitude depends on how much weight large records receive.",
+        "## What we did",
         "",
-        "| Summary of recorded children | Male share |",
+        f"We assembled {base['rows']} records of families, parents, or groups of "
+        "children from selected texts and accounts. Counts include named children, "
+        "explicit enumerations, and stated minimum counts. We retained "
+        f"{variants} alternative codings covering source differences, attribution, "
+        "and counting scope, "
+        f"and separately coded {prayers[0]['episodes']} prayer and birth episodes.",
+        "",
+        "We compare pooled counts with summaries that give equal weight to each "
+        "record or source category. We also examine percentiles, limit the "
+        "contribution of large records, omit records and source categories in "
+        "turn, and vary the recorded source choices. These checks show which "
+        "features of the collection drive the results.",
+        "",
+        "## What we found",
+        "",
+        "Sons make up a majority under each weighting below, but the size of "
+        "the imbalance changes substantially. The uncapped total is especially "
+        "sensitive to extraordinary enumerations.",
+        "",
+        "| Summary | Share of sons |",
         "|---|---:|",
         f"| Pooled counts, uncapped | {base['male_pct']:.1f}% |",
         f"| Equal weight per record | {base['equal_record_pct']:.1f}% |",
@@ -645,15 +661,15 @@ def markdown_results(
     lines.extend(
         [
             "",
-            "Male share is sons / (sons + daughters). The equal-record mean averages "
+            "The share is sons / (sons + daughters). The equal-record mean averages "
             "these shares; the equal-category mean averages pooled shares within "
             "nonempty `epic` categories. Records without sex-specified children do "
             "not enter either mean. These summaries describe different quantities.",
             "",
-            "### Percentiles and winsorization",
+            "### Distribution across records",
             "",
-            "| Measure across records | P10 | P25 | Median | P75 | P90 | P95 | P99 |",
-            "|---|---:|---:|---:|---:|---:|---:|---:|",
+            "| Measure | Records | P10 | P25 | Median | P75 | P90 | P95 | P99 |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|---:|",
         ]
     )
     labels = {
@@ -667,7 +683,7 @@ def markdown_results(
             values = " | ".join(
                 f"{r[f'p{p:02d}']:.2f}" for p in (10, 25, 50, 75, 90, 95, 99)
             )
-            lines.append(f"| {labels[r['measure']]} | {values} |")
+            lines.append(f"| {labels[r['measure']]} | {r['observations']} | {values} |")
     strongest = max(
         (r for r in influence if r["scope"] == "all" and r["unit"] == "record"),
         key=lambda r: abs(r["change_pp"]),
@@ -700,7 +716,8 @@ def markdown_results(
             "",
             "### Other sensitivity checks",
             "",
-            f"Removing the most influential record ({strongest['omitted']}) gives "
+            "Removing the most influential record, "
+            f"{strongest['omitted'].split(' / ', 1)[1]}, gives "
             f"{strongest['male_pct']:.1f}% sons. Excluding the "
             f"{base['rows'] - without_mythical['rows']} inherited "
             f"`mythical_count` records gives "
@@ -709,9 +726,9 @@ def markdown_results(
             f"{current['flag_filtered']['male_pct']:.1f}%; restricting further to "
             "records labelled historical gives "
             f"{current['historical_filtered']['male_pct']:.1f}%. "
-            "These labels are not validated quality ratings: some other 100-son "
-            "records are unflagged, and the historical subset differs in "
-            "source composition.",
+            "The flags are inherited classifications, not quality ratings; "
+            "some other 100-son records are unflagged. The historical subset "
+            "also differs in source composition.",
             "",
             f"Allowing the recorded alternatives to vary jointly gives "
             f"{bounds['minimum']:.1f}–{bounds['maximum']:.1f}% for the flag-filtered "
@@ -727,6 +744,13 @@ def markdown_results(
             f"and {prayers[0]['unspecified']} unspecified. The list includes "
             "announcements, unintended conception, and revival requests; these "
             "counts do not measure prospective parental preferences.",
+            "",
+            "The collection is selected rather than representative. Records can "
+            "overlap, and sources can omit or leave children unnumbered. The "
+            "checks establish sensitivity within this collection; they do not "
+            "separate selective recording from differences in family composition. "
+            "No population significance tests or sampling confidence intervals "
+            "are reported.",
         ]
     )
     return "\n".join(lines)

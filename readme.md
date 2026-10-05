@@ -1,27 +1,27 @@
 # Epic Children
 
-A sourced dataset of parent–child relationships and prayer or birth episodes
-from selected epics, religious texts, mythological traditions, and historical
-accounts. Use it to inspect recorded genealogies and compare how counts change
-under different sources and analytical choices.
+This project examines how sons and daughters are represented in recorded
+genealogies from selected epics, religious texts, and historical accounts.
+The question is whether an imbalance persists across sources and counting
+choices, or is largely driven by a few enormous families.
 
-[Child records](data/epic_children.csv) ·
-[Prayer and birth episodes](data/epic_prayer_for_children.csv) ·
-[Analysis](scripts/analyze.py)
-
-The collection is selected, not representative. Records mix named children,
-unnamed enumerations, minimum counts, and overlapping biological, adoptive, or
-household relationships. Totals describe these records, not unique births or
-population sex ratios. An omitted daughter and an absent daughter cannot
-consistently be distinguished; these counts alone do not identify son preference.
-
-## Results
+The analysis concerns what these records enumerate. Birth patterns, parental
+preferences, and selective recording can all affect the counts; this collection
+cannot distinguish their contributions.
 
 <!-- BEGIN GENERATED SUMMARY -->
 
-The dataset contains 539 child records, 23 prayer and birth episodes, and 74 alternative codings. Sons predominate in the recorded counts; the magnitude depends on how much weight large records receive.
+## What we did
 
-| Summary of recorded children | Male share |
+We assembled 539 records of families, parents, or groups of children from selected texts and accounts. Counts include named children, explicit enumerations, and stated minimum counts. We retained 74 alternative codings covering source differences, attribution, and counting scope, and separately coded 23 prayer and birth episodes.
+
+We compare pooled counts with summaries that give equal weight to each record or source category. We also examine percentiles, limit the contribution of large records, omit records and source categories in turn, and vary the recorded source choices. These checks show which features of the collection drive the results.
+
+## What we found
+
+Sons make up a majority under each weighting below, but the size of the imbalance changes substantially. The uncapped total is especially sensitive to extraordinary enumerations.
+
+| Summary | Share of sons |
 |---|---:|
 | Pooled counts, uncapped | 99.2% |
 | Equal weight per record | 80.1% |
@@ -30,16 +30,16 @@ The dataset contains 539 child records, 23 prayer and birth episodes, and 74 alt
 | Total contribution capped at P95 (13 children) | 77.3% |
 | Total contribution capped at P99 (100 children) | 83.0% |
 
-Male share is sons / (sons + daughters). The equal-record mean averages these shares; the equal-category mean averages pooled shares within nonempty `epic` categories. Records without sex-specified children do not enter either mean. These summaries describe different quantities.
+The share is sons / (sons + daughters). The equal-record mean averages these shares; the equal-category mean averages pooled shares within nonempty `epic` categories. Records without sex-specified children do not enter either mean. These summaries describe different quantities.
 
-### Percentiles and winsorization
+### Distribution across records
 
-| Measure across records | P10 | P25 | Median | P75 | P90 | P95 | P99 |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| Recorded sons | 1.00 | 1.00 | 1.00 | 3.00 | 6.00 | 10.00 | 100.00 |
-| Recorded daughters | 0.00 | 0.00 | 0.00 | 1.00 | 2.00 | 3.00 | 11.25 |
-| Recorded children, all sexes | 1.00 | 1.00 | 2.00 | 4.00 | 8.00 | 13.00 | 100.00 |
-| Share of sons (%) | 33.33 | 66.67 | 100.00 | 100.00 | 100.00 | 100.00 | 100.00 |
+| Measure | Records | P10 | P25 | Median | P75 | P90 | P95 | P99 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Recorded sons | 526 | 1.00 | 1.00 | 1.00 | 3.00 | 6.00 | 10.00 | 100.00 |
+| Recorded daughters | 526 | 0.00 | 0.00 | 0.00 | 1.00 | 2.00 | 3.00 | 11.25 |
+| Recorded children, all sexes | 526 | 1.00 | 1.00 | 2.00 | 4.00 | 8.00 | 13.00 | 100.00 |
+| Share of sons (%) | 525 | 33.33 | 66.67 | 100.00 | 100.00 | 100.00 | 100.00 | 100.00 |
 
 Percentiles give each record equal weight and use linear interpolation between ordered observations ([Python's inclusive method](https://docs.python.org/3/library/statistics.html#statistics.quantiles)). Count distributions exclude zero-total records, which can represent inactive accounts. Share distributions exclude records with no sex-specified children. A median share of 100% describes the middle record, not the pooled counts.
 
@@ -47,45 +47,50 @@ Winsorization is upper-only: estimate the size cutoff among positive-total recor
 
 ### Other sensitivity checks
 
-Removing the most influential record (bhagavata_purana / Sagara and Sumati) gives 86.8% sons. Excluding the 7 inherited `mythical_count` records gives 77.5% sons. Also excluding `cross_tradition` records gives 77.6%; restricting further to records labelled historical gives 61.3%. These labels are not validated quality ratings: some other 100-son records are unflagged, and the historical subset differs in source composition.
+Removing the most influential record, Sagara and Sumati, gives 86.8% sons. Excluding the 7 inherited `mythical_count` records gives 77.5% sons. Also excluding `cross_tradition` records gives 77.6%; restricting further to records labelled historical gives 61.3%. The flags are inherited classifications, not quality ratings; some other 100-son records are unflagged. The historical subset also differs in source composition.
 
 Allowing the recorded alternatives to vary jointly gives 74.9–79.2% for the flag-filtered selection. This is a mechanical sensitivity range, not a confidence interval or necessarily a coherent textual edition. Full outputs also cover count thresholds, fixed contribution caps, record and category omissions, and allocation of unspecified-sex children.
 
 The episode wording codes are 8 son, 0 daughter, 1 both, and 14 unspecified. The list includes announcements, unintended conception, and revival requests; these counts do not measure prospective parental preferences.
 
+The collection is selected rather than representative. Records can overlap, and sources can omit or leave children unnumbered. The checks establish sensitivity within this collection; they do not separate selective recording from differences in family composition. No population significance tests or sampling confidence intervals are reported.
+
 <!-- END GENERATED SUMMARY -->
 
-## Use the data
+## Underlying data
+
+[Child records](data/epic_children.csv) ·
+[Prayer and birth episodes](data/epic_prayer_for_children.csv) ·
+[Additional coding alternatives](data/alternatives.json)
 
 Each child row represents a sourced family, parent, or enumerated group.
-Read its `source` and `comments` before using the counts. Git tracks corrections;
-source disagreements are retained alongside the working coding.
+It can include biological, adoptive, or household relationships, and is not
+necessarily a unique couple or a complete genealogy. Read `source` and
+`comments` for the passage, translation, counting scope, and unresolved issues.
+Evidence includes primary passages, secondary summaries, and stated inferences.
 
-| Fields | Interpretation |
+| Fields | Meaning |
 |---|---|
-| `parents`, `husband`, `wife` | Parent labels; they do not consistently establish marriage or biological parenthood. `unknown`, `multiple`, and `none` are placeholders. |
-| `husband_id`, `wife_id`, `family_id` | Inherited parent IDs and selected cross-tradition family links. Coverage and identity resolution are incomplete; these are not universal deduplication keys. |
-| `n_sons`, `n_daughters`, `n_unknown_sex` | Recorded counts, including stated minimum counts. Zero does not necessarily mean an explicit assertion of absence. Unspecified sex does not measure omitted or unquantified children. |
+| `parents`, `husband`, `wife` | Parent labels; marriage and biological parenthood are not always established. `unknown`, `multiple`, and `none` are placeholders. |
+| `husband_id`, `wife_id`, `family_id` | Inherited parent IDs and selected family links. Coverage and identity resolution are incomplete; these are not universal deduplication keys. |
+| `n_sons`, `n_daughters`, `n_unknown_sex` | Recorded counts, including stated minimum counts. Zero can mean no child counted rather than an explicit statement of absence. Unspecified sex does not measure omitted or unquantified children. |
 | `sons`, `daughters` | Names or descriptions supporting the counts, not standardized lists. |
 | `epic`, `row_type`, `historicity` | Source category, record type, and inherited historical classification. Categories vary in scope and are not independent sampled traditions. |
-| `source`, `comments` | References, coding scope, and unresolved questions. Evidence includes primary passages, secondary summaries, and stated inferences. |
-| `alternate_*` | One alternate account per row: complete counts, child descriptions, source, explanation, and `alternate_id`. Rows sharing an ID change together. Blank fields mean no recorded alternative, not agreement among sources. |
+| `source`, `comments` | References and coding explanations. |
+| `alternate_*` | One alternate account per row, with complete counts, descriptions, source, explanation, and `alternate_id`. Rows sharing an ID change together. Blank fields mean no recorded alternative. |
 
-Alternatives **replace** affected records; they are never appended as additional
-children. The analysis applies each alternative separately to the baseline;
-only the joint sensitivity calculation combines choices. Other interpretation
-and counting-scope choices live in [alternatives.json](data/alternatives.json).
-The alternatives do not exhaust textual variation, and may change names or
-attribution without changing counts.
+Alternatives replace affected records rather than adding children. Each is
+applied separately to the baseline; only the joint sensitivity calculation
+combines choices. Differences can concern names, attribution, or counting
+scope without changing totals. The recorded alternatives do not exhaust
+textual variation.
 
-The prayer CSV records `parent`, `epic`, `ritual_type`, `desired_gender`,
-`sons_born`, `daughters_born`, `children_from_prayer`, `source`, and `comments`.
-`desired_gender` reflects explicit wishes in the cited wording; neither a
-promise nor the eventual child's sex establishes a wish. `unspecified` does
-not mean indifference. Outcome fields associate children with episodes without
-establishing that prayer caused a birth.
+In the episode data, `desired_gender` codes explicit wishes in the cited
+wording. A promise or the child's eventual sex does not establish a wish;
+`unspecified` does not mean indifference. The outcome fields associate children
+with episodes without establishing that prayer caused a birth.
 
-## Reproduce
+## Reproduce the analysis
 
 Use Python 3.10 or later. Computation and validation use the standard library;
 figures use matplotlib.
@@ -99,38 +104,27 @@ make reproduce PYTHON=python
 ```
 
 `make check` runs formatting, lint, tests, and data validation. `make reproduce`
-regenerates all tables, alternative datasets, figures, and the results above.
-To generate tables elsewhere without changing the README or figures:
+regenerates the tables, alternative datasets, figures, and numerical results
+in this README. The analysis is in [scripts/analyze.py](scripts/analyze.py).
+
+| Results | Contents |
+|---|---|
+| [Distributions](results/distributions.csv), [winsorization](results/winsorized.csv) | Percentiles, size cutoffs, numbers of capped records, and weighted summaries for every coding version across three selections. |
+| [Robustness](results/robustness.csv) | Seventeen selection and weighting rules for every version. |
+| [Influence](results/influence.csv), [joint coding ranges](results/coding_envelope.csv) | Omission checks and extreme shares under combined coding choices. |
+| [Counts](results/summary.csv), [group summaries](results/group_summary.csv) | Counting policies overall and by source, row type, or historicity. The legacy `sons_cap_200` policy caps sons alone. |
+| [Alternative datasets](results/alternatives/), [episode summaries](results/prayer_summary.csv) | Each alternative applied separately, and episode wording codes by source. |
+
+The [robustness figure](figs/plot_robustness.png) compares the inclusion and
+weighting rules. To generate tables elsewhere without changing this README
+or the figures:
 
 ```sh
 python scripts/analyze.py --no-plots --output-dir /tmp/epic-children-results
 ```
 
-| Output | Contents |
-|---|---|
-| [Distributions](results/distributions.csv) | Count and share percentiles for the baseline and each alternative, across three selections. |
-| [Winsorization](results/winsorized.csv) | P90, P95, and P99 cutoffs, numbers of capped records, and weighted summaries. |
-| [Robustness](results/robustness.csv) | Seventeen selection and weighting rules for every version. |
-| [Influence](results/influence.csv) | Omit one record, source category, or supplied linked-family group at a time. |
-| [Joint coding ranges](results/coding_envelope.csv) | Extreme pooled shares and the alternative IDs producing them. |
-| [Count summaries](results/summary.csv), [group summaries](results/group_summary.csv) | Counting policies overall and by source, row type, or historicity. The legacy `sons_cap_200` policy caps sons alone. |
-| [Alternative datasets](results/alternatives/) | Complete datasets with each alternative applied separately. |
-| [Episode summaries](results/prayer_summary.csv) | Wording codes overall and by source category. |
-
-The [robustness figure](figs/plot_robustness.png) compares inclusion and weighting
-rules. Sensitivity checks describe coding and analytical choices. They do not
-resolve selection or source dependence; no population significance tests or
-sampling confidence intervals are reported.
-
-## Correct or extend a record
-
-Check the exact passage and translation, then update `source` and `comments`
-with the coding rationale. Correct errors directly. Preserve reasonable
-alternative accounts in `alternate_*`, using a shared `alternate_id` when
-parentage changes affect several rows. Do not allocate children to unnamed
-spouses, treat an unquantified plural as an exact count, or combine incompatible
-accounts. Run `make check` and `make reproduce` after edits.
-
-Unresolved identities and source limits belong in the record's notes. Validation
-checks structure and internal consistency; it does not certify every source or
-make the collection exhaustive.
+To correct a record, check the exact passage and translation, edit its counts
+and source notes, and rerun the checks and analysis. Preserve reasonable
+alternative accounts in `alternate_*`; use a shared `alternate_id` for changes
+spanning rows. Git tracks corrections. Validation checks structure and internal
+consistency, not source completeness or the accuracy of every attribution.
