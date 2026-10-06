@@ -180,3 +180,8 @@ and source notes, and rerun the checks and analysis. Preserve reasonable
 alternative accounts in `alternate_*`; use a shared `alternate_id` for changes
 spanning rows. Git tracks corrections. Validation checks structure and internal
 consistency, not source completeness or the accuracy of every attribution.
+
+## Citation
+
+Use the metadata in [CITATION.cff](CITATION.cff) to cite the data or analyses.
+Include the release or commit used so readers can identify the exact version.

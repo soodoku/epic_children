@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: >-
+  If you use the data or analyses in this repository, please cite this work
+  and identify the release or commit used.
+type: software
+title: "Epic Children: Recorded Children in Epics and Historical Accounts"
+authors:
+  - family-names: Sood
+    given-names: Gaurav
+repository-code: "https://github.com/soodoku/epic_children"
+url: "https://github.com/soodoku/epic_children"
+abstract: >-
+  Sourced parent-child records and reproducible R analyses of recorded sons
+  and daughters in selected epics, religious texts, and historical accounts,
+  including alternative source codings and sensitivity checks.
+keywords:
+  - genealogies
+  - epics
+  - descriptive analysis
