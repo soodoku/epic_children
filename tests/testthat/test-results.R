@@ -64,3 +64,20 @@ test_that("figures use the reported data, common percentage axes, and supported 
   built <- ggplot2::ggplot_build(plots$robustness)
   expect_equal(sort(built$data[[2]]$x), sort(plots$robustness$data$value))
 })
+
+
+test_that("entry points select their own locked environment", {
+  elsewhere <- tempfile("other-r-project-")
+  dir.create(elsewhere)
+  output <- tempfile()
+  status <- withr::with_envvar(c(RENV_PROJECT = elsewhere), system2(
+    file.path(R.home("bin"), "Rscript"),
+    c("--vanilla", shQuote(file.path(root, "scripts", "run_all.R")), "--check"),
+    stdout = output, stderr = output
+  ))
+  text <- paste(readLines(output), collapse = "\n")
+  expect_equal(status, 0)
+  expect_match(text, "Validated 562 records and 74 alternative codings")
+  expect_false(grepl("Warning|Failed", text))
+  expect_length(list.files(elsewhere, all.files = TRUE, no.. = TRUE), 0)
+})
