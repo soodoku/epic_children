@@ -1,6 +1,6 @@
 .DS_Store
-.ipynb_checkpoints/
-__pycache__/
-.pytest_cache/
-.venv/
-*.py[cod]
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+renv/staging/

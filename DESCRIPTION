@@ -1,0 +1,23 @@
+Package: epicchildren
+Type: Project
+Title: Recorded Children in Epics and Historical Accounts
+Version: 0.1.0
+Authors@R: person("Gaurav", "Sood", role = c("aut", "cre"), email = "gsood07@gmail.com")
+Description: Sourced parent-child records and descriptive analyses of recorded
+    sons and daughters, with alternative source codings, weighting and inclusion
+    checks, empirical percentiles, and winsorization.
+Encoding: UTF-8
+Depends: R (>= 4.6.0)
+Imports:
+    dplyr,
+    ggplot2,
+    glue,
+    jsonlite,
+    readr
+Suggests:
+    lintr,
+    renv,
+    styler,
+    testthat,
+    withr
+Config/testthat/edition: 3

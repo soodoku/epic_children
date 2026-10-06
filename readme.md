@@ -13,13 +13,22 @@ cannot distinguish their contributions.
 
 ## What we did
 
-We assembled 539 records of families, parents, or groups of children from selected texts and accounts. Counts include named children, explicit enumerations, and stated minimum counts. We retained 74 alternative codings covering source differences, attribution, and counting scope, and separately coded 23 prayer and birth episodes.
+We assembled 539 records of families, parents, or groups of children
+from selected texts and accounts. Counts include named children, explicit
+enumerations, and stated minimum counts. We retained 74 alternative
+codings covering source differences, attribution, and counting scope, and
+separately coded 23 prayer and birth episodes.
 
-We compare pooled counts with summaries that give equal weight to each record or source category. We also examine percentiles, limit the contribution of large records, omit records and source categories in turn, and vary the recorded source choices. These checks show which features of the collection drive the results.
+We compare pooled counts with summaries that give equal weight to each record
+or source category. We also examine percentiles, limit the contribution of
+large records, omit records and source categories in turn, and vary the recorded
+source choices. These checks show which features of the collection drive the results.
 
 ## What we found
 
-Sons make up a majority under each weighting below, but the size of the imbalance changes substantially. The uncapped total is especially sensitive to extraordinary enumerations.
+Sons make up a majority under each weighting below, but the size of the imbalance
+changes substantially. The uncapped total is especially sensitive to extraordinary
+enumerations.
 
 | Summary | Share of sons |
 |---|---:|
@@ -30,7 +39,16 @@ Sons make up a majority under each weighting below, but the size of the imbalanc
 | Total contribution capped at P95 (13 children) | 77.3% |
 | Total contribution capped at P99 (100 children) | 83.0% |
 
-The share is sons / (sons + daughters). The equal-record mean averages these shares; the equal-category mean averages pooled shares within nonempty `epic` categories. Records without sex-specified children do not enter either mean. These summaries describe different quantities.
+The share is sons / (sons + daughters). The equal-record mean averages these
+shares; the equal-category mean averages pooled shares within nonempty `epic`
+categories. Records without sex-specified children do not enter either mean.
+These summaries describe different quantities.
+
+![Recorded shares of sons under alternative selection and weighting rules](figs/plot_robustness.png)
+
+Each row applies a selection or contribution rule to the baseline coding. Points
+compare pooled, equal-record, and equal-category summaries; the dotted line marks
+50%. These are descriptive comparisons, without sampling intervals.
 
 ### Distribution across records
 
@@ -41,19 +59,54 @@ The share is sons / (sons + daughters). The equal-record mean averages these sha
 | Recorded children, all sexes | 526 | 1.00 | 1.00 | 2.00 | 4.00 | 8.00 | 13.00 | 100.00 |
 | Share of sons (%) | 525 | 33.33 | 66.67 | 100.00 | 100.00 | 100.00 | 100.00 | 100.00 |
 
-Percentiles give each record equal weight and use linear interpolation between ordered observations ([Python's inclusive method](https://docs.python.org/3/library/statistics.html#statistics.quantiles)). Count distributions exclude zero-total records, which can represent inactive accounts. Share distributions exclude records with no sex-specified children. A median share of 100% describes the middle record, not the pooled counts.
+Percentiles give each record equal weight and use linear interpolation between
+ordered observations (R's `quantile(type = 7)`). Count distributions exclude
+zero-total records, which can represent inactive accounts. Share distributions
+exclude records with no sex-specified children. A median share of 100% describes
+the middle record, not the pooled counts.
 
-Winsorization is upper-only: estimate the size cutoff among positive-total records, then multiply each record's sons, daughters, and unspecified-sex counts by `min(1, cutoff / total)`. This preserves sex composition and retains records while limiting their contribution. Cutoffs are recomputed within each selection and coding version. Counts in the source CSV stay unchanged. Ties mean the fraction capped need not equal the nominal tail.
+Winsorization is upper-only: estimate the size cutoff among positive-total records,
+then multiply each record's sons, daughters, and unspecified-sex counts by
+`min(1, cutoff / total)`. This preserves sex composition and retains records while
+limiting their contribution. Cutoffs are recomputed within each selection and
+coding version. Counts in the source CSV stay unchanged. Ties mean the fraction
+capped need not equal the nominal tail.
 
 ### Other sensitivity checks
 
-Removing the most influential record, Sagara and Sumati, gives 86.8% sons. Excluding the 7 inherited `mythical_count` records gives 77.5% sons. Also excluding `cross_tradition` records gives 77.6%; restricting further to records labelled historical gives 61.3%. The flags are inherited classifications, not quality ratings; some other 100-son records are unflagged. The historical subset also differs in source composition.
+Removing the most influential record, Sagara and Sumati, gives 86.8%
+sons. Excluding the 7 inherited `mythical_count` records
+gives 77.5% sons. Also excluding `cross_tradition` records gives
+77.6%; restricting further to records labelled historical gives
+61.3%. The flags are inherited classifications, not quality
+ratings; some other 100-son records are unflagged. The historical subset also
+differs in source composition.
 
-Allowing the recorded alternatives to vary jointly gives 74.9–79.2% for the flag-filtered selection. This is a mechanical sensitivity range, not a confidence interval or necessarily a coherent textual edition. Full outputs also cover count thresholds, fixed contribution caps, record and category omissions, and allocation of unspecified-sex children.
+Allowing the recorded alternatives to vary jointly gives 74.9–79.2%
+for the flag-filtered selection. This is a mechanical sensitivity range, not a
+confidence interval or necessarily a coherent textual edition. Full outputs also
+cover count thresholds, fixed contribution caps, record and category omissions,
+and allocation of unspecified-sex children.
 
-The episode wording codes are 8 son, 0 daughter, 1 both, and 14 unspecified. The list includes announcements, unintended conception, and revival requests; these counts do not measure prospective parental preferences.
+The episode wording codes are 8 son, 0 daughter,
+1 both, and 14 unspecified. The list
+includes announcements, unintended conception, and revival requests; these counts
+do not measure prospective parental preferences.
 
-The collection is selected rather than representative. Records can overlap, and sources can omit or leave children unnumbered. The checks establish sensitivity within this collection; they do not separate selective recording from differences in family composition. No population significance tests or sampling confidence intervals are reported.
+### Variation across source categories
+
+![Pooled shares of sons by source category after the inherited flag exclusions](figs/plot_by_tradition.png)
+
+Bars show sons / (sons + daughters) after excluding `mythical_count` and
+`cross_tradition` records. Categories with at least five retained rows are shown;
+labels give row counts. These compare selected records under inherited source
+labels, not populations or independent samples of traditions.
+
+The collection is selected rather than representative. Records can overlap, and
+sources can omit or leave children unnumbered. The checks establish sensitivity
+within this collection; they do not separate selective recording from differences
+in family composition. No population significance tests or sampling confidence
+intervals are reported.
 
 <!-- END GENERATED SUMMARY -->
 
@@ -92,20 +145,21 @@ with episodes without establishing that prayer caused a birth.
 
 ## Reproduce the analysis
 
-Use Python 3.10 or later. Computation and validation use the standard library;
-figures use matplotlib.
+Use R 4.6.0. Package versions are recorded in `renv.lock`.
 
 ```sh
-python3 -m venv .venv
-. .venv/bin/activate
-python -m pip install -r requirements-dev.txt
-make check PYTHON=python
-make reproduce PYTHON=python
+make restore
+make check
+make reproduce
 ```
 
-`make check` runs formatting, lint, tests, and data validation. `make reproduce`
-regenerates the tables, alternative datasets, figures, and numerical results
-in this README. The analysis is in [scripts/analyze.py](scripts/analyze.py).
+`make check` runs lint, tests, and source-data validation. `make reproduce`
+regenerates tables, alternative datasets, figures, and the numerical results
+in this README. Functions live in [R/](R/); [scripts/run_all.R](scripts/run_all.R)
+writes the analysis tables, [scripts/figures.R](scripts/figures.R) draws the
+figures, and [scripts/tables.R](scripts/tables.R) updates the results above.
+Figures are available as PNG and PDF. `make ci-docker` runs the checks in the
+standard `rocker/r-ver:4.6.0` image.
 
 | Results | Contents |
 |---|---|
@@ -115,12 +169,10 @@ in this README. The analysis is in [scripts/analyze.py](scripts/analyze.py).
 | [Counts](results/summary.csv), [group summaries](results/group_summary.csv) | Counting policies overall and by source, row type, or historicity. The legacy `sons_cap_200` policy caps sons alone. |
 | [Alternative datasets](results/alternatives/), [episode summaries](results/prayer_summary.csv) | Each alternative applied separately, and episode wording codes by source. |
 
-The [robustness figure](figs/plot_robustness.png) compares the inclusion and
-weighting rules. To generate tables elsewhere without changing this README
-or the figures:
+To generate tables elsewhere without changing this README or the figures:
 
 ```sh
-python scripts/analyze.py --no-plots --output-dir /tmp/epic-children-results
+Rscript scripts/run_all.R --output-dir /tmp/epic-children-results
 ```
 
 To correct a record, check the exact passage and translation, edit its counts

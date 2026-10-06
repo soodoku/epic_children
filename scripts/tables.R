@@ -1,0 +1,6 @@
+script <- sub("^--file=", "", grep("^--file=", commandArgs(), value = TRUE))
+root <- dirname(dirname(normalizePath(script)))
+setwd(root)
+if (Sys.getenv("RENV_PROJECT") != root) source("renv/activate.R")
+for (file in list.files("R", pattern = "[.]R$", full.names = TRUE)) source(file)
+update_readme(load_results(), "readme.md")
