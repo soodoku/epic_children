@@ -31,3 +31,18 @@ example_row <- function(name, sons, daughters, epic = "a", unknown = 0, ...) {
 
 change <- function(parent, values, epic = "a") list(epic = epic, parent = parent, values = values)
 alternative <- function(id, ...) list(id = id, changes = list(...))
+
+expect_fields <- function(rows, parent, ...) {
+  x <- record(rows, parent)
+  expected <- list(...)
+  for (field in names(expected)) expect_identical(x[[field]], expected[[field]], info = paste(parent, field))
+}
+
+child_matches <- function(rows, child, field = "sons") {
+  vapply(strsplit(rows[[field]], "; ", fixed = TRUE), function(x) child %in% x, logical(1))
+}
+
+expect_totals <- function(rows, sons, daughters) {
+  x <- summarize_counts(rows)
+  expect_equal(c(x$sons, x$daughters), c(sons, daughters))
+}

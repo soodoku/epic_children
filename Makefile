@@ -27,5 +27,6 @@ check: lint test
 	Rscript scripts/run_all.R --check
 
 ci-docker:
-	docker run --rm -v "$(PWD):/project" -w /project rocker/r-ver:4.6.0 \
-		bash -lc "apt-get update && apt-get install -y --no-install-recommends libcurl4-openssl-dev libssl-dev libxml2-dev && Rscript -e 'install.packages(\"renv\", repos = \"https://cloud.r-project.org\")' && make restore check"
+	docker run --rm -v "$(PWD):/project" -v epic-children-renv:/renv-cache \
+		-e RENV_PATHS_ROOT=/renv-cache -w /project rocker/r-ver:4.6.0 \
+		bash -lc "apt-get update && apt-get install -y --no-install-recommends libcurl4-openssl-dev libssl-dev libxml2-dev libuv1-dev && Rscript --vanilla -e 'install.packages(\"renv\", repos = \"https://cloud.r-project.org\")' && make restore check"

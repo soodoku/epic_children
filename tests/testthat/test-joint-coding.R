@@ -75,3 +75,20 @@ test_that("prayer codes partition selected episodes without outcome inference", 
   expect_true(all(unspecified %in% repository$prayers$parent))
   expect_true(all(repository$prayers$desired_gender[repository$prayers$parent %in% unspecified] == "unspecified"))
 })
+
+test_that("prayer wording stays separate from the associated birth outcome", {
+  rows <- repository$prayers
+  for (parent in c(
+    "Zechariah and Elizabeth", "Abraham and Hagar", "Abraham and Sarah",
+    "Manoah and wife", "Ibrahim (2nd)", "Parvati"
+  )) {
+    row <- rows[rows$parent == parent, ]
+    expect_equal(nrow(row), 1)
+    expect_identical(row$sons_born, "1")
+    expect_identical(row$desired_gender, "unspecified")
+  }
+  expect_identical(rows$desired_gender[rows$parent == "Gandhari"], "son_and_daughter")
+  expect_identical(rows$desired_gender[rows$parent == "Drupad"], "son")
+  expect_identical(rows$sons_born[rows$parent == "Hannah"], "1")
+  expect_identical(rows$epic[rows$parent == "Zechariah and Elizabeth"], "christian_nt")
+})

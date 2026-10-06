@@ -56,7 +56,7 @@ plot_results <- function(tables, destination = "figs") {
         sep = "\n"
       )
     ) +
-    theme_evidence() +
+    theme_evidence(14) +
     ggplot2::theme(legend.justification = "left")
   save_evidence(robustness, file.path(destination, "plot_robustness"), 12, 8)
   invisible(list(categories = categories, counting = counting, robustness = robustness))

@@ -19,9 +19,10 @@ test_that("all committed tables reproduce and grouped totals reconcile", {
   files <- list.files(output, pattern = "[.]csv$", recursive = TRUE)
   expect_setequal(files, list.files(file.path(root, "results"), pattern = "[.]csv$", recursive = TRUE))
   for (file in files) {
-    expect_equal(read_rows(file.path(output, file)),
-      read_rows(file.path(root, "results", file)),
-      info = file
+    reader <- if (startsWith(file, "alternatives/")) read_rows else read_output
+    expect_equal(reader(file.path(output, file)),
+      reader(file.path(root, "results", file)),
+      tolerance = 1e-10, info = file
     )
   }
   for (policy_name in names(policies)) {
