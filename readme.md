@@ -77,7 +77,7 @@ capped need not equal the nominal tail.
 Removing the most influential record, Sagara and Sumati, gives 86.8%
 sons. Excluding the 7 inherited `mythical_count` records
 gives 77.5% sons. Also excluding `cross_tradition` records gives
-77.6%; restricting further to records labelled historical gives
+77.6%; restricting further to records labeled historical gives
 61.3%. The flags are inherited classifications, not quality
 ratings; some other 100-son records are unflagged. The historical subset also
 differs in source composition.

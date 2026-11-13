@@ -105,7 +105,7 @@ capped need not equal the nominal tail.
 Removing the most influential record, {strongest_name}, gives {pct(strongest$male_pct)}
 sons. Excluding the {base$rows - without$rows} inherited `mythical_count` records
 gives {pct(without$male_pct)} sons. Also excluding `cross_tradition` records gives
-{pct(filtered$male_pct)}; restricting further to records labelled historical gives
+{pct(filtered$male_pct)}; restricting further to records labeled historical gives
 {pct(historical$male_pct)}. The flags are inherited classifications, not quality
 ratings; some other 100-son records are unflagged. The historical subset also
 differs in source composition.
